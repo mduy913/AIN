@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 Thế giới AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <div id="header">
+            <h1>🌍 Thế giới AI</h1>
+            <div id="stats">
+                <span id="time-display">Đang tải...</span>
+                <span id="weather-display">⏳</span>
+                <span id="npc-count">👥 0</span>
+            </div>
+            <div id="controls">
+                <button onclick="togglePause()">⏸️ Tạm dừng</button>
+                <button onclick="setSpeed(0.5)">🐢 0.5x</button>
+                <button onclick="setSpeed(1)">▶️ 1x</button>
+                <button onclick="setSpeed(2)">🐇 2x</button>
+                <button onclick="setSpeed(5)">🚀 5x</button>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div id="main">
+            <canvas id="world-canvas"></canvas>
+            <div id="sidebar">
+                <h3>📊 Thống kê</h3>
+                <div id="stats-panel">
+                    <p>Tổng NPC: <span id="stat-total">0</span></p>
+                    <p>Còn sống: <span id="stat-alive">0</span></p>
+                    <p>Nghề phổ biến: <span id="stat-prof">-</span></p>
+                    <p>Cảm xúc phổ biến: <span id="stat-emotion">-</span></p>
+                </div>
+                <h3>🧑 NPC nổi bật</h3>
+                <div id="npc-list"></div>
+            </div>
+        </div>
+
+        <!-- NPC Info Modal -->
+        <div id="npc-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="npc-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/renderer.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
