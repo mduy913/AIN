@@ -105,6 +105,7 @@ table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{t
 const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
 const ADMIN_PIN = "123456"; 
 
+
 let touchCount = 0;
 document.body.addEventListener('touchstart', function(e) {
     if (e.touches.length === 4) {
@@ -116,18 +117,23 @@ document.body.addEventListener('touchstart', function(e) {
         }
     }
 });
+
+
 document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => {
     document.querySelectorAll('[data-view]').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
     document.querySelectorAll('.view').forEach(x => x.classList.add('hidden'));
     document.getElementById(b.dataset.view).classList.remove('hidden');
 });
+
+
 document.querySelectorAll('[data-admin]').forEach(b => b.onclick = () => {
     document.querySelectorAll('.adminpage').forEach(x => x.classList.add('hidden'));
     document.getElementById(b.dataset.admin).classList.remove('hidden');
     if (b.dataset.admin === 'config') loadConfig();
     if (b.dataset.admin === 'inventory') loadInventory();
 });
+
 
 document.getElementById('unlockBtn').onclick = () => {
     if (document.getElementById('pinInput').value === ADMIN_PIN) {
@@ -137,6 +143,8 @@ document.getElementById('unlockBtn').onclick = () => {
         loadConfig();
     } else { alert("Sai mã PIN!"); }
 };
+
+
 document.getElementById('startTaskBtn').onclick = function() {
     this.disabled = true;
     this.textContent = 'ĐANG CHUYỂN...';
@@ -159,6 +167,7 @@ document.getElementById('startTaskBtn').onclick = function() {
     });
 };
 
+
 document.getElementById('addAccounts').onclick = function() {
     const lines = document.getElementById('newAccounts').value.split('\n').map(x => x.trim()).filter(Boolean);
     if (lines.length === 0) return alert('Vui lòng nhập acc!');
@@ -179,6 +188,7 @@ document.getElementById('addAccounts').onclick = function() {
     loadInventory();
 };
 
+
 document.getElementById('saveConfig').onclick = function() {
     const data = {
         bypassUrl: document.getElementById('bypassUrl').value.trim(),
@@ -191,6 +201,7 @@ document.getElementById('saveConfig').onclick = function() {
         alert("Đã lưu cấu hình!");
     });
 };
+
 
 function loadInventory() {
     fetch(FIREBASE_URL + "inventory.json")
