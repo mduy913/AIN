@@ -4,66 +4,233 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MDUYK ACCOUNT</title>
-<style>:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac;--green:#61c995}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.wrap{max-width:1050px;margin:auto;padding:24px 18px 50px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px;gap:12px}.brand{font-weight:900;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.badge{font-size:11px;color:#9de4bd;border:1px solid #28513f;background:#10271e;padding:7px 10px;border-radius:30px}.hero{padding:48px 0 24px}.eyebrow{font-size:11px;color:#f08089;letter-spacing:.2em;font-weight:900}h1{font-size:clamp(38px,7vw,62px);line-height:1;margin:12px 0}h1 span{color:#e24a57}.muted{color:var(--muted);font-size:13px;line-height:1.65}.tabs{display:flex;gap:8px;margin:20px 0}.tab,button{font:inherit;cursor:pointer}.tab,.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:11px 15px;font-weight:800}.tab.active,.primary{background:var(--red);border-color:var(--red);color:white}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}h2{font-size:18px;margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}label{font-size:11px;font-weight:800;color:#d9c9cd}input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:white;font:inherit}textarea{min-height:120px;resize:vertical}button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:0;border-radius:10px;font-weight:900;width:100%}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}.notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}.hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.footer{text-align:center;color:#8e7d82;font-size:11px;margin-top:25px;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:17px}.wrap{padding:17px 13px 35px}}</style>
+<style>
+:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac;--green:#61c995}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:24px 18px 50px}
+header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px;gap:12px}
+.brand{font-weight:900;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.badge{font-size:11px;color:#9de4bd;border:1px solid #28513f;background:#10271e;padding:7px 10px;border-radius:30px}
+.hero{padding:48px 0 24px}.eyebrow{font-size:11px;color:#f08089;letter-spacing:.2em;font-weight:900}
+h1{font-size:clamp(38px,7vw,62px);line-height:1;margin:12px 0}h1 span{color:#e24a57}
+.muted{color:var(--muted);font-size:13px;line-height:1.65}
+.tabs{display:flex;gap:8px;margin:20px 0}.tab,button{font:inherit;cursor:pointer}
+.tab,.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:11px 15px;font-weight:800}
+.tab.active,.primary{background:var(--red);border-color:var(--red);color:white}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+h2{font-size:18px;margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}
+label{font-size:11px;font-weight:800;color:#d9c9cd}
+input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:white;font:inherit}
+textarea{min-height:120px;resize:vertical}
+button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:0;border-radius:10px;font-weight:900;width:100%}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}
+.notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}
+.result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}
+.credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}
+.hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}
+table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}
+.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.footer{text-align:center;color:#8e7d82;font-size:11px;margin-top:25px;line-height:1.6}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:17px}.wrap{padding:17px 13px 35px}}
+</style>
 </head>
 <body>
 <div class="wrap">
 <header><div class="brand">MDUYK ACCOUNT<small>SECURE REDEMPTION SYSTEM</small></div><div class="badge" id="topBadge">● HỆ THỐNG</div></header>
 <nav class="tabs" id="navTabs"><button class="tab active" data-view="client">Nhận tài khoản</button><button class="tab hidden" id="adminTab" data-view="admin">Admin quản lý</button></nav>
+
 <section id="client" class="view">
-<section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
-<div class="grid"><div class="panel"><div class="eyebrow">01 / REDEMPTION</div><h2>Nhận tài khoản</h2><p class="muted" style="margin-bottom:15px;">Bấm nút bên dưới để làm nhiệm vụ và nhận tài khoản.</p><button class="primary" id="startTaskBtn">NHẬN ACC NGAY →</button><div class="notice">Lưu ý: Hệ thống sẽ chuyển hướng bạn sang trang làm nhiệm vụ.</div></div><div class="panel"><div class="eyebrow">02 / LINK STATUS</div><h2>Trạng thái</h2><p class="muted">Hệ thống tự động kiểm tra và cấp phát.</p><div class="stats"><div class="stat"><b>24/7</b><small>Hoạt động</small></div><div class="stat"><b>1×</b><small>Lượt nhận</small></div><div class="stat"><b>Auto</b><small>Cấp phát</small></div></div></div></div>
+    <section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
+    <div class="grid">
+        <div class="panel">
+            <div class="eyebrow">01 / REDEMPTION</div>
+            <h2>Nhận tài khoản</h2>
+            <p class="muted" style="margin-bottom:15px;">Bấm nút bên dưới để làm nhiệm vụ và nhận tài khoản.</p>
+            <button class="primary" id="startTaskBtn">NHẬN ACC NGAY →</button>
+            <div class="notice">Lưu ý: Hệ thống sẽ chuyển hướng bạn sang trang làm nhiệm vụ.</div>
+        </div>
+        <div class="panel">
+            <div class="eyebrow">02 / LINK STATUS</div>
+            <h2>Trạng thái</h2>
+            <p class="muted">Hệ thống tự động kiểm tra và cấp phát.</p>
+            <div class="stats">
+                <div class="stat"><b>24/7</b><small>Hoạt động</small></div>
+                <div class="stat"><b>1×</b><small>Lượt nhận</small></div>
+                <div class="stat"><b>Auto</b><small>Cấp phát</small></div>
+            </div>
+        </div>
+    </div>
 </section>
+
 <section id="admin" class="view hidden">
-<div id="lockScreen" class="panel" style="text-align:center;padding:40px 20px;"><div class="eyebrow">SECURITY CHECK</div><h2>KHU VỰC QUẢN TRỊ</h2><p class="muted">Vui lòng nhập mã PIN để truy cập</p><input type="password" id="pinInput" placeholder="••••••" style="width:200px;text-align:center;font-size:20px;letter-spacing:5px;margin:15px auto;"><button class="primary" id="unlockBtn" style="width:200px;margin:auto;">MỞ KHÓA</button></div>
-<div id="adminPanel" class="panel hidden"><div class="eyebrow">ADMIN CONTROL</div><h2>Trung tâm quản trị</h2><div class="stats"><div class="stat"><b id="stockCount">0</b><small>Acc trong kho</small></div><div class="stat"><b id="issuedCount">0</b><small>Đã phát</small></div></div><div class="adminnav"><button class="secondary" data-admin="inventory">Kho tài khoản</button><button class="secondary" data-admin="config">Cấu hình</button></div><div id="inventory" class="adminpage"><div class="field"><label>THÊM ACC (mỗi dòng: username | password)</label><textarea id="newAccounts" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div><button class="primary" id="addAccounts">THÊM VÀO KHO</button><div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="inventoryRows"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div></div><div id="config" class="adminpage hidden"><div class="field"><label>LINK NHIỆM VỤ (Ví dụ: Link4M)</label><input id="bypassUrl" placeholder="https://link4m.com/abc"></div><div class="field"><label>LINK VỀ (Sau khi lấy acc)</label><input id="redirectUrl" placeholder="https://zalo.me/g/..."></div><button class="primary" id="saveConfig">LƯU CẤU HÌNH</button></div></div>
+    <div id="lockScreen" class="panel" style="text-align:center;padding:40px 20px;">
+        <div class="eyebrow">SECURITY CHECK</div>
+        <h2>KHU VỰC QUẢN TRỊ</h2>
+        <p class="muted">Vui lòng nhập mã PIN để truy cập</p>
+        <input type="password" id="pinInput" placeholder="••••••" style="width:200px;text-align:center;font-size:20px;letter-spacing:5px;margin:15px auto;">
+        <button class="primary" id="unlockBtn" style="width:200px;margin:auto;">MỞ KHÓA</button>
+    </div>
+    
+    <div id="adminPanel" class="panel hidden">
+        <div class="eyebrow">ADMIN CONTROL</div>
+        <h2>Trung tâm quản trị</h2>
+        <div class="stats">
+            <div class="stat"><b id="stockCount">0</b><small>Acc trong kho</small></div>
+            <div class="stat"><b id="issuedCount">0</b><small>Đã phát</small></div>
+        </div>
+        <div class="adminnav">
+            <button class="secondary" data-admin="inventory">Kho tài khoản</button>
+            <button class="secondary" data-admin="config">Cấu hình</button>
+        </div>
+        
+        <div id="inventory" class="adminpage">
+            <div class="field"><label>THÊM ACC (mỗi dòng: username | password)</label><textarea id="newAccounts" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div>
+            <button class="primary" id="addAccounts">THÊM VÀO KHO</button>
+            <div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="inventoryRows"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div>
+        </div>
+        
+        <div id="config" class="adminpage hidden">
+            <div class="field"><label>LINK NHIỆM VỤ (Bắt buộc - VD: Link4M)</label><input id="bypassUrl" placeholder="https://link4m.com/abc"></div>
+            <div class="field"><label>LINK VỀ (Sau khi lấy acc)</label><input id="redirectUrl" placeholder="https://zalo.me/g/..."></div>
+            <button class="primary" id="saveConfig">LƯU CẤU HÌNH</button>
+        </div>
+    </div>
 </section>
 <div class="footer">MDUYK ACCOUNT<br>Hệ thống phân phối tài khoản tự động.</div>
 </div>
+
 <script>
-(function(){
-var _0x1a=["https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/","123456","links/","inventory","config","used","user","pass","bypassUrl","redirectUrl","value","trim","href","location","#adminTab","classList","remove","hidden","#pinInput","#unlockBtn","#lockScreen","#adminPanel","#inventoryRows","#stockCount","#issuedCount","#bypassUrl","#redirectUrl","innerHTML","textContent","POST","PUT","JSON","stringify","split","\n","|","map","filter","Boolean","alert","POST","#startTaskBtn","#addAccounts","#saveConfig","querySelector","querySelectorAll"];
-var F=_0x1a[0],P=_0x1a[1];
-var d=document,w=window;
-function _0x2b(s){return d.querySelector(s);}
-function _0x3c(s){return d.querySelectorAll(s);}
-d.oncontextmenu=function(e){e.preventDefault();return false;};
-d.onkeydown=function(e){if(e.keyCode==123||(e.ctrlKey&&e.shiftKey&&(e.keyCode==73||e.keyCode==74))||(e.ctrlKey&&e.keyCode==85)){e.preventDefault();return false;}};
-var _0x4d=0,_0x5e=null;
-d.body.addEventListener('touchstart',function(e){if(e.touches.length===4){_0x4d++;clearTimeout(_0x5e);_0x5e=setTimeout(function(){_0x4d=0;},2000);if(_0x4d>=6){_0x2b(_0x1a[13]).classList.remove(_0x1a[16]);_0x4d=0;}}});
-_0x3c('[data-view]').forEach(function(b){b.onclick=function(){_0x3c('[data-view]').forEach(function(x){x.classList.toggle('active',x===b);});_0x3c('.view').forEach(function(x){x.classList.add(_0x1a[16]);});d.getElementById(b.dataset.view).classList.remove(_0x1a[16]);};});
-_0x3c('[data-admin]').forEach(function(b){b.onclick=function(){_0x3c('.adminpage').forEach(function(x){x.classList.add(_0x1a[16]);});d.getElementById(b.dataset.admin).classList.remove(_0x1a[16]);if(b.dataset.admin==='config')_0x6f();if(b.dataset.admin==='inventory')_0x7g();};});
-_0x2b(_0x1a[35]).onclick=async function(){
-this.disabled=true;this.textContent='ĐANG CHUYỂN...';
-try{
-var _0x8h=await fetch(F+_0x1a[4]+'.json');var _0x9i=await _0x8h.json();
-if(_0x9i&&_0x9i[_0x1a[8]]){w[_0x1a[12]][_0x1a[11]]=_0x9i[_0x1a[8]];}
-else{alert("Admin chưa cài đặt Link Nhiệm Vụ!");this.disabled=false;this.textContent='NHẬN ACC NGAY →';}
-}catch(e){alert("Lỗi kết nối!");this.disabled=false;this.textContent='NHẬN ACC NGAY →';}
+const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
+const ADMIN_PIN = "123456"; 
+
+// Mở khóa Admin (chạm 4 ngón 6 lần)
+let touchCount = 0;
+document.body.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 4) {
+        touchCount++;
+        setTimeout(() => { touchCount = 0; }, 2000);
+        if (touchCount >= 6) {
+            document.getElementById('adminTab').classList.remove('hidden');
+            alert("Đã mở khóa Tab Admin!");
+        }
+    }
+});
+
+// Chuyển Tab
+document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => {
+    document.querySelectorAll('[data-view]').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.view').forEach(x => x.classList.add('hidden'));
+    document.getElementById(b.dataset.view).classList.remove('hidden');
+});
+
+// Chuyển Tab Admin
+document.querySelectorAll('[data-admin]').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.adminpage').forEach(x => x.classList.add('hidden'));
+    document.getElementById(b.dataset.admin).classList.remove('hidden');
+    if (b.dataset.admin === 'config') loadConfig();
+    if (b.dataset.admin === 'inventory') loadInventory();
+});
+
+// Đăng nhập Admin
+document.getElementById('unlockBtn').onclick = () => {
+    if (document.getElementById('pinInput').value === ADMIN_PIN) {
+        document.getElementById('lockScreen').classList.add('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        loadInventory();
+        loadConfig();
+    } else { alert("Sai mã PIN!"); }
 };
-_0x2b(_0x1a[19]).onclick=function(){
-if(_0x2b(_0x1a[17]).value===P){_0x2b(_0x1a[20]).classList.add(_0x1a[16]);_0x2b(_0x1a[21]).classList.remove(_0x1a[16]);_0x7g();_0x6f();}else{alert("Sai mã PIN!");}
+
+// Bấm Nhận Acc Ở Trang Chủ (Chuyển sang link Nhiệm Vụ)
+document.getElementById('startTaskBtn').onclick = function() {
+    this.disabled = true;
+    this.textContent = 'ĐANG CHUYỂN...';
+    
+    fetch(FIREBASE_URL + "config.json")
+    .then(res => res.json())
+    .then(data => {
+        if (data && data.bypassUrl) {
+            window.location.href = data.bypassUrl;
+        } else {
+            alert("Admin chưa cài đặt Link Nhiệm Vụ!");
+            this.disabled = false;
+            this.textContent = 'NHẬN ACC NGAY →';
+        }
+    })
+    .catch(err => {
+        alert("Lỗi mạng!");
+        this.disabled = false;
+        this.textContent = 'NHẬN ACC NGAY →';
+    });
 };
-async function _0x7g(){
-var _0xa1=await fetch(F+_0x1a[3]+'.json');var _0xb2=await _0xa1.json();var _0xc3='',_0xd4=0,_0xe5=0;
-if(_0xb2){for(var _0xf6 in _0xb2){var _0x107=_0xb2[_0xf6];if(_0x107[_0x1a[5]])_0xe5++;else _0xd4++;_0xc3+='<tr><td>'+_0x107[_0x1a[6]]+' | '+_0x107[_0x1a[7]]+'</td><td class="status '+(_0x107[_0x1a[5]]?'used':'')+'">'+(_0x107[_0x1a[5]]?'ĐÃ PHÁT':'CÒN TRONG KHO')+'</td></tr>';}}
-_0x2b(_0x1a[22]).innerHTML=_0xc3||'<tr><td colspan="2">Kho trống</td></tr>';_0x2b(_0x1a[23]).textContent=_0xd4;_0x2b(_0x1a[24]).textContent=_0xe5;
+
+// Admin Thêm Acc
+document.getElementById('addAccounts').onclick = function() {
+    const lines = document.getElementById('newAccounts').value.split('\n').map(x => x.trim()).filter(Boolean);
+    if (lines.length === 0) return alert('Vui lòng nhập acc!');
+    
+    let count = 0;
+    lines.forEach(line => {
+        const parts = line.split('|');
+        if (parts.length >= 2) {
+            fetch(FIREBASE_URL + "inventory.json", {
+                method: 'POST',
+                body: JSON.stringify({ user: parts[0].trim(), pass: parts[1].trim(), used: false })
+            });
+            count++;
+        }
+    });
+    document.getElementById('newAccounts').value = '';
+    alert(`Đã thêm ${count} acc!`);
+    loadInventory();
+};
+
+// Admin Lưu Config
+document.getElementById('saveConfig').onclick = function() {
+    const data = {
+        bypassUrl: document.getElementById('bypassUrl').value.trim(),
+        redirectUrl: document.getElementById('redirectUrl').value.trim()
+    };
+    fetch(FIREBASE_URL + "config.json", {
+        method: 'PUT',
+        body: JSON.stringify(data)
+    }).then(() => {
+        alert("Đã lưu cấu hình!");
+    });
+};
+
+// Tải Data Admin
+function loadInventory() {
+    fetch(FIREBASE_URL + "inventory.json")
+    .then(res => res.json())
+    .then(data => {
+        let html = '', stock = 0, issued = 0;
+        if (data) {
+            for (const key in data) {
+                const item = data[key];
+                if (item.used) issued++; else stock++;
+                html += `<tr><td>${item.user} | ${item.pass}</td><td class="status ${item.used ? 'used' : ''}">${item.used ? 'ĐÃ PHÁT' : 'CÒN TRONG KHO'}</td></tr>`;
+            }
+        }
+        document.getElementById('inventoryRows').innerHTML = html || '<tr><td colspan="2">Kho trống</td></tr>';
+        document.getElementById('stockCount').textContent = stock;
+        document.getElementById('issuedCount').textContent = issued;
+    });
 }
-async function _0x6f(){
-var _0x118=await fetch(F+_0x1a[4]+'.json');var _0x129=await _0x118.json();
-if(_0x129){if(_0x129[_0x1a[8]])_0x2b(_0x1a[25]).value=_0x129[_0x1a[8]];if(_0x129[_0x1a[9]])_0x2b(_0x1a[26]).value=_0x129[_0x1a[9]];}
+
+function loadConfig() {
+    fetch(FIREBASE_URL + "config.json")
+    .then(res => res.json())
+    .then(data => {
+        if (data) {
+            if (data.bypassUrl) document.getElementById('bypassUrl').value = data.bypassUrl;
+            if (data.redirectUrl) document.getElementById('redirectUrl').value = data.redirectUrl;
+        }
+    });
 }
-_0x2b(_0x1a[36]).onclick=async function(){
-var _0x13a=_0x2b('#newAccounts').value.split(_0x1a[33]).map(function(x){return x.trim()}).filter(function(x){return x});
-if(!_0x13a.length)return alert('Nhập acc!');var _0x14b=0;
-for(var _0x15c=0;_0x15c<_0x13a.length;_0x15c++){var _0x16d=_0x13a[_0x15c].split(_0x1a[34]).map(function(x){return x.trim()});if(_0x16d.length>=2&&_0x16d[0]&&_0x16d[1]){await fetch(F+_0x1a[3]+'.json',{method:_0x1a[29],body:JSON.stringify({user:_0x16d[0],pass:_0x16d[1],used:false})});_0x14b++;}}
-_0x2b('#newAccounts').value='';alert("Đã thêm "+_0x14b+" acc!");_0x7g();
-};
-_0x2b(_0x1a[37]).onclick=async function(){
-var _0x17e=_0x2b(_0x1a[25]).value.trim();var _0x18f=_0x2b(_0x1a[26]).value.trim();
-await fetch(F+_0x1a[4]+'.json',{method:_0x1a[30],body:JSON.stringify({bypassUrl:_0x17e,redirectUrl:_0x18f})});alert("Đã lưu cấu hình!");
-};
-})();
 </script>
 </body>
 </html>
