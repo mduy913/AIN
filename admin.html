@@ -3,82 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MDUYK ADMIN</title>
-<style>:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}h1{font-size:24px;margin:0 0 10px}.field{display:grid;gap:7px;margin:14px 0}label{font-size:11px;font-weight:800;color:#d9c9cd}input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:#fff;font:inherit}textarea{min-height:100px;resize:vertical}button{padding:13px;background:var(--red);border:0;border-radius:10px;color:#fff;font-weight:900;cursor:pointer}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:500px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.hidden{display:none!important}</style>
+<title>NHIỆM VỤ - MDUYK</title>
+<style>
+:root{--bg:#0b090a;--panel:#151113;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;max-width:400px;width:90%;text-align:center}
+h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-height:1.6}
+.btn{background:var(--red);color:white;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;font-size:16px;cursor:pointer;margin-top:20px;text-decoration:none;display:block}
+.btn:active{background:#8a1923}
+.steps{text-align:left;background:#0d0a0b;padding:15px;border-radius:10px;margin-top:20px;font-size:13px;border:1px solid var(--line)}
+</style>
 </head>
 <body>
 
-<div id="lockScreen" class="wrap" style="text-align:center; margin-top: 100px;">
-    <h2>KHU VỰC QUẢN TRỊ</h2>
-    <p class="muted">Vui lòng nhập mã PIN để truy cập</p>
-    <input type="password" id="pinInput" placeholder="Nhập mã PIN..." style="width:200px; text-align:center; margin: 15px auto;">
-    <br><button id="unlockBtn" style="width:200px;">MỞ KHÓA</button>
-</div>
+<div class="panel">
+    <h1>LÀM NHIỆM VỤ</h1>
+    <p class="muted">Vui lòng làm theo các bước dưới đây để vượt link và lấy tài khoản.</p>
+    
+    <div class="steps">
+        <p>1. Bấm vào nút bên dưới để truy cập trang nhiệm vụ.</p>
+        <p>2. Chờ 15 giây và làm theo hướng dẫn.</p>
+        <p>3. Bấm quay lại để nhận tài khoản.</p>
+    </div>
 
-<div id="adminPanel" class="wrap hidden">
-    <h1>QUẢN TRỊ HỆ THỐNG</h1>
-    <div class="panel"><h2>1. Thêm Acc Vào Kho</h2><p class="muted">Mỗi dòng một acc, định dạng: <b>user | pass</b></p><div class="field"><textarea id="x" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div><button id="y">THÊM VÀO KHO</button></div>
-    <div class="panel"><h2>2. Tạo Link Nhận Acc</h2><div class="field"><label>LINK CHUYỂN HƯỚNG</label><input id="z" placeholder="https://zalo.me/g/..."></div><button id="w">+ TẠO MÃ MỚI</button></div>
-    <div class="panel"><h2>3. Danh Sách Mã Link</h2><div class="tablewrap"><table><thead><tr><th>Mã Link</th><th>Trạng thái</th><th>Chuyển hướng</th></tr></thead><tbody id="u"><tr><td colspan="3">Đang tải...</td></tr></tbody></table></div></div>
-    <div class="panel"><h2>4. Kho Tài Khoản</h2><div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="v"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div></div>
+    <!-- NÚT NÀY BẠN CÓ THỂ GẮN LINK NHIỆM VỤ THỰC TẾ CỦA BẠN VÀO -->
+    <a href="https://zalo.me/g/group-cua-ban" target="_blank" class="btn" id="taskLink">BẤM VÀO ĐÂY ĐỂ LÀM NHIỆM VỤ</a>
+    
+    <button class="btn" id="finishBtn" style="background:#28513f; margin-top:10px;">TÔI ĐÃ LÀM XONG →</button>
 </div>
 
 <script>
-(function(){
-var _0x1q2w=["https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/","#u","#v","#x","#y","#z","#w","innerHTML","links","inventory","GET","POST","PUT","user","pass","used","redirectUrl","split","trim","filter","value","alert","length","\n","MDUYK-","toString","substring","toUpperCase","#lockScreen","#adminPanel","#pinInput","#unlockBtn","hidden","classList","MÃ PIN SAI! TRUY CẬP BỊ TỪ CHỐI","123456"]; 
-var F=_0x1q2w[0];
-var _0x9o0p=document;
-var _0xPin=_0x1q2w[34]; // Mã PIN của bạn (Mặc định là 123456)
+// Lấy Token được gửi từ bên index.html sang
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get('token');
 
-_0x9o0p[_0x1q2w[31]].onclick = function() {
-    if(_0x9o0p[_0x1q2w[30]][_0x1q2w[19]] === _0xPin) {
-        _0x9o0p[_0x1q2w[29]][_0x1q2w[32]][_0x1q2w[33]]("hidden");
-        _0x9o0p[_0x1q2w[28]][_0x1q2w[32]][_0x1q2w[33]]("hidden");
-        _0x1a2s();
-    } else {
-        alert(_0x1q2w[35]);
-        window.location.href = "/"; // Đá văng ra trang chủ nếu gõ sai
-    }
-};
-
-function _0x1a2s(){
-fetch(F+_0x1q2w[8]+".json").then(function(a){return a.json()}).then(function(b){
-var c="";
-if(b){for(var d in b){var e=b[d];c+="<tr><td><b>"+d+"</b></td><td class='status "+(e[_0x1q2w[15]]?"used":"")+"'>"+(e[_0x1q2w[15]]?"ĐÃ DÙNG":"HIỆU LỰC")+"</td><td>"+(e[_0x1q2w[16]]?"<a href='"+e[_0x1q2w[16]]+"' target='_blank' style='color:#61c995'>Link</a>":"Không có")+"</td></tr>"}}
-_0x9o0p[_0x1q2w[1]][_0x1q2w[7]]=c||"<tr><td colspan='3'>Chưa có mã.</td></tr>";
-});
-fetch(F+_0x1q2w[9]+".json").then(function(a){return a.json()}).then(function(b){
-var c="";
-if(b){for(var d in b){var e=b[d];c+="<tr><td><b>"+e[_0x1q2w[13]]+"</b> | "+e[_0x1q2w[14]]+"</td><td class='status "+(e[_0x1q2w[15]]?"used":"")+"'>"+(e[_0x1q2w[15]]?"ĐÃ PHÁT":"TRONG KHO")+"</td></tr>"}}
-_0x9o0p[_0x1q2w[2]][_0x1q2w[7]]=c||"<tr><td colspan='2'>Kho trống.</td></tr>";
-});
+// Nếu không có token, đá về trang chủ
+if (!token) {
+    window.location.href = "/"; 
 }
 
-_0x9o0p[_0x1q2w[4]].onclick=function(){
-var a=_0x9o0p[_0x1q2w[3]][_0x1q2w[19]][_0x1q2w[22]](_0x1q2w[23])[_0x1q2w[17]](function(b){return b[_0x1q2w[18]]()})[_0x1q2w[20]](Boolean);
-if(a[_0x1q2w[21]]===0)return alert("Nhập acc!");
-var c=0;
-a.forEach(function(b){
-var d=b[_0x1q2w[16]]("|")[_0x1q2w[17]](function(e){return e[_0x1q2w[18]]()});
-if(d[_0x1q2w[21]]>=2){
-fetch(F+_0x1q2w[9]+".json",{method:_0x1q2w[11],body:JSON.stringify({user:d[0],pass:d[1],used:false})});
-c++;
-}
-});
-_0x9o0p[_0x1q2w[3]][_0x1q2w[19]]="";
-alert("Đã thêm "+c+" acc!");
-_0x1a2s();
+document.getElementById('finishBtn').onclick = function() {
+    // Sau khi bấm xong, đá khách về index.html kèm mã token
+    // Cấu trúc: mduy.com/#/MDUYK-XXXX
+    window.location.href = window.location.origin + window.location.pathname.replace('ma.html', '') + "#/" + token;
 };
-
-_0x9o0p[_0x1q2w[6]].onclick=function(){
-var a=_0x9o0p[_0x1q2w[5]][_0x1q2w[19]][_0x1q2w[18]]();
-var b=_0x1q2w[24]+Math.random()[_0x1q2w[25]](36)[_0x1q2w[26]](2,8)[_0x1q2w[27]]();
-fetch(F+_0x1q2w[8]+"/"+b+".json",{method:_0x1q2w[12],body:JSON.stringify({used:false,redirectUrl:a})});
-alert("Mã: "+b);
-_0x9o0p[_0x1q2w[5]][_0x1q2w[19]]="";
-_0x1a2s();
-};
-})();
 </script>
+
 </body>
 </html>
