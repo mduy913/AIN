@@ -4,63 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MDUYK REDEEM</title>
-<style>:root{--bg:#0b090a;--panel:#151113;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;max-width:400px;width:90%;text-align:center}h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-height:1.6}.btn{background:var(--red);color:white;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;font-size:16px;cursor:pointer;margin-top:20px;text-decoration:none;display:block}.btn:active{background:#8a1923}.result{display:none;margin-top:15px;background:#10251c;border:1px solid #28513f;padding:15px;border-radius:10px}.credential{font:14px monospace;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px;border:1px solid #28513f;word-break:break-all}</style>
+<style>
+:root{--bg:#0b090a;--panel:#151113;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;max-width:400px;width:90%;text-align:center}
+h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-height:1.6}
+.btn{background:var(--red);color:white;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;font-size:16px;cursor:pointer;margin-top:20px;text-decoration:none;display:block}
+.btn:active{background:#8a1923}
+.result{display:none;margin-top:15px;background:#10251c;border:1px solid #28513f;padding:15px;border-radius:10px}
+.credential{font:14px monospace;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px;border:1px solid #28513f;word-break:break-all}
+</style>
 </head>
 <body>
 <div class="panel">
-<h1>MDUYK ACCOUNT</h1>
-<p class="muted" id="desc">Nhấn nút bên dưới để lấy tài khoản.</p>
-<button class="btn" id="actionBtn">LẤY ACC NGAY →</button>
-<div class="result" id="resultBox">
-<b style="color:#61c995;">✓ Tài khoản của bạn đây:</b>
-<div class="credential" id="accText"></div>
-<p class="muted" style="margin-top:10px;font-size:12px;">Hệ thống tự chuyển hướng sau 3 giây...</p>
+    <h1>MDUYK ACCOUNT</h1>
+    <p class="muted" id="desc">Nhấn nút bên dưới để lấy tài khoản.</p>
+    <button class="btn" id="actionBtn">LẤY ACC NGAY →</button>
+    <div class="result" id="resultBox">
+        <b style="color:#61c995;">✓ Tài khoản của bạn đây:</b>
+        <div class="credential" id="accText"></div>
+        <p class="muted" style="margin-top:10px;font-size:12px;">Hệ thống tự chuyển hướng sau 3 giây...</p>
+    </div>
 </div>
-</div>
+
 <script>
-(function(){
-var _0x1a=["https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/","MDUYK-","links/","inventory","config","used","user","pass","redirectUrl","#actionBtn","#resultBox","#accText","#desc","value","trim","href","location","pathname","origin","/","?","token","replace","lastIndexOf","substring","alert","Kho đã hết acc!","Mã đã bị vô hiệu hóa!","Lỗi kết nối!"];
-var F=_0x1a[0];
-var d=document,w=window;
-function _0x2b(s){return d.querySelector(s);}
-d.oncontextmenu=function(e){e.preventDefault();return false;};
-d.onkeydown=function(e){if(e.keyCode==123||(e.ctrlKey&&e.shiftKey&&(e.keyCode==73||e.keyCode==74))||(e.ctrlKey&&e.keyCode==85)){e.preventDefault();return false;}};
-var _0x3c=w[_0x1a[16]][_0x1a[15]];
-var _0x4d="";
-if(_0x3c.indexOf(_0x1a[1])>-1){
-var _0x5e=_0x3c.split(_0x1a[1]);
-if(_0x5e.length>1)_0x4d=_0x1a[1]+_0x5e[1].split('/')[0];
+const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
+let token = "";
+
+// Tự động lấy mã trên URL hoặc tạo mã mới
+let url = window.location.href;
+if (url.includes("MDUYK-")) {
+    let parts = url.split("MDUYK-");
+    token = "MDUYK-" + parts[1].split("/")[0];
+} else {
+    token = "MDUYK-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+    window.history.replaceState(null, '', window.location.pathname + "/" + token);
 }
-if(!_0x4d){
-_0x4d=_0x1a[1]+Math.random().toString(36).substring(2,8).toUpperCase();
-w[_0x1a[16]][_0x1a[21]](w[_0x1a[16]][_0x1a[18]]+w[_0x1a[16]][_0x1a[17]]+_0x1a[19]+_0x4d);
-}
-_0x2b(_0x1a[9]).onclick=async function(){
-this.disabled=true;this.textContent='ĐANG LẤY ACC...';
-try{
-var _0x6f=await fetch(F+_0x1a[2]+_0x4d+".json");var _0x7g=await _0x6f.json();
-if(_0x7g&&_0x7g[_0x1a[5]])throw new Error(_0x1a[26]);
-var _0x8h=await fetch(F+_0x1a[3]+".json");var _0x9i=await _0x8h.json();
-var _0xa1=null,_0xb2=null;
-for(var _0xc3 in _0x9i){
-if(!_0x9i[_0xc3][_0x1a[5]]){_0xa1=_0xc3;_0xb2=_0x9i[_0xc3];break;}
-}
-if(!_0xb2)throw new Error(_0x1a[25]);
-await fetch(F+_0x1a[2]+_0x4d+"/used.json",{method:"PUT",body:"true"});
-await fetch(F+_0x1a[3]+"/"+_0xa1+"/used.json",{method:"PUT",body:"true"});
-_0x2b(_0x1a[11]).textContent=_0xb2[_0x1a[6]]+" | "+_0xb2[_0x1a[7]];
-_0x2b(_0x1a[10]).style.display='block';
-this.textContent='ĐÃ LẤY ACC';
-setTimeout(async function(){
-var _0xd4=await fetch(F+_0x1a[4]+".json");var _0xe5=await _0xd4.json();
-if(_0xe5&&_0xe5[_0x1a[8]])w[_0x1a[16]][_0x1a[15]]=_0xe5[_0x1a[8]];
-},4000);
-}catch(e){
-alert(e.message);
-this.textContent='LỖI HOẶC HẾT HẠN';
-}
+
+// Bấm lấy acc
+document.getElementById('actionBtn').onclick = function() {
+    let btn = this;
+    btn.disabled = true;
+    btn.textContent = 'ĐANG LẤY...';
+    
+    fetch(FIREBASE_URL + "links/" + token + ".json")
+    .then(res => res.json())
+    .then(tokenData => {
+        if (tokenData && tokenData.used) {
+            throw new Error("Mã này đã bị vô hiệu hóa!");
+        }
+        
+        return fetch(FIREBASE_URL + "inventory.json");
+    })
+    .then(res => res.json())
+    .then(invData => {
+        let accKey = null, accData = null;
+        for (let key in invData) {
+            if (!invData[key].used) { accKey = key; accData = invData[key]; break; }
+        }
+        if (!accData) throw new Error("Kho đã hết acc!");
+
+        // Đánh dấu đã dùng
+        fetch(FIREBASE_URL + "links/" + token + ".json", { method: 'PUT', body: JSON.stringify({used: true}) });
+        fetch(FIREBASE_URL + "inventory/" + accKey + "/used.json", { method: 'PUT', body: 'true' });
+
+        // Hiện acc
+        document.getElementById('accText').textContent = accData.user + " | " + accData.pass;
+        document.getElementById('resultBox').style.display = "block";
+        btn.textContent = 'ĐÃ LẤY ACC';
+
+        // Tự động chuyển sang Zalo
+        return fetch(FIREBASE_URL + "config.json");
+    })
+    .then(res => res.json())
+    .then(cfg => {
+        if (cfg && cfg.redirectUrl) {
+            setTimeout(() => { window.location.href = cfg.redirectUrl; }, 3000);
+        }
+    })
+    .catch(err => {
+        alert(err.message);
+        btn.textContent = 'LỖI HOẶC HẾT HẠN';
+    });
 };
-})();
 </script>
 </body>
 </html>
