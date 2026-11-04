@@ -27,7 +27,6 @@ button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
 .stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}
 .notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}
-.token{font:12px monospace;padding:12px;border:1px dashed #69434a;border-radius:9px;word-break:break-all;color:#f2b5bb;cursor:pointer}
 .result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}
 .credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}
 .hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
@@ -41,23 +40,21 @@ table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{t
 <div class="wrap">
 <header><div class="brand">MDUYK ACCOUNT<small>SECURE REDEMPTION SYSTEM</small></div><div class="badge" id="topBadge">● HỆ THỐNG</div></header>
 
-<!-- TAB CHUYỂN ĐỔI (Tab Admin mặc định ẩn) -->
 <nav class="tabs" id="navTabs">
     <button class="tab active" data-view="client">Nhận tài khoản</button>
     <button class="tab hidden" id="adminTab" data-view="admin">Admin quản lý</button>
 </nav>
 
-<!-- TRANG CHỦ (Dành cho khách nhập mã trực tiếp) -->
+<!-- TRANG CHỦ -->
 <section id="client" class="view">
-    <section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động bằng mã nhận riêng.</p></section>
+    <section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
     <div class="grid">
         <div class="panel">
             <div class="eyebrow">01 / REDEMPTION</div>
             <h2>Nhận tài khoản</h2>
-            <div class="field"><label>MÃ NHẬN TÀI KHOẢN</label><input id="claimToken" placeholder="Dán mã nhận acc..."></div>
-            <button class="primary" id="claimBtn">NHẬN ACC NGAY →</button>
-            <div class="result" id="claimResult"><b>✓ Nhận tài khoản thành công</b><div class="credential" id="credential"></div></div>
-            <div class="notice">Lưu ý: Mỗi mã chỉ sử dụng được 1 lần. Không chia sẻ mã cho người khác.</div>
+            <p class="muted" style="margin-bottom: 15px;">Bấm nút bên dưới để làm nhiệm vụ và nhận tài khoản.</p>
+            <button class="primary" id="startTaskBtn">LÀM NHIỆM VỤ NHẬN ACC →</button>
+            <div class="notice">Lưu ý: Mỗi phiên làm nhiệm vụ chỉ cấp 1 mã duy nhất. Lấy xong mã sẽ bị vô hiệu hóa vĩnh viễn.</div>
         </div>
         <div class="panel">
             <div class="eyebrow">02 / LINK STATUS</div>
@@ -72,24 +69,19 @@ table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{t
     </div>
 </section>
 
-<!-- TRANG TRUNG GIAN (Dành cho khách vào bằng link /ma-random) -->
+<!-- TRANG NHẬN ACC SAU KHI VƯỢT LINK -->
 <section id="landingView" class="view hidden">
     <div class="panel" style="max-width:600px; margin: 40px auto; text-align:center;">
         <div class="eyebrow" style="color:#61c995;">LINK REDEMPTION</div>
         <h2>CHÚC MỪNG BẠN!</h2>
-        <p class="muted">Bạn đã truy cập đúng link nhận quà. Hãy bấm nút bên dưới để lấy tài khoản.</p>
+        <p class="muted">Bạn đã hoàn thành nhiệm vụ. Hãy bấm nút bên dưới để nhận tài khoản.</p>
         
-        <div class="notice" style="text-align:left;">
-            <b>Phần thưởng của bạn:</b> Tài khoản VIP<br>
-            <b>Trạng thái:</b> Sẵn sàng
-        </div>
-
-        <button class="primary" id="getGiftBtn" style="margin-top:20px;">LẤY MÃ NGAY →</button>
+        <button class="primary" id="getGiftBtn" style="margin-top:20px;">LẤY ACC NGAY →</button>
         
         <div class="result" id="giftResult">
-            <b>✓ Mã của bạn đây:</b>
+            <b>✓ Tài khoản của bạn đây:</b>
             <div class="credential" id="giftCredential"></div>
-            <p class="muted" style="margin-top:10px; font-size:12px;">Hãy copy mã này. Hệ thống sẽ tự chuyển hướng sau 3 giây...</p>
+            <p class="muted" style="margin-top:10px; font-size:12px;">Hãy copy tài khoản này. Hệ thống sẽ tự chuyển hướng sau 3 giây...</p>
         </div>
     </div>
 </section>
@@ -114,7 +106,7 @@ table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{t
         </div>
         <div class="adminnav">
             <button class="secondary" data-admin="inventory">Kho tài khoản</button>
-            <button class="secondary" data-admin="links">Liên kết nhận</button>
+            <button class="secondary" data-admin="links">Cấu hình Nhiệm Vụ</button>
         </div>
         
         <div id="inventory" class="adminpage">
@@ -124,10 +116,9 @@ table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{t
         </div>
         
         <div id="links" class="adminpage hidden">
-            <div class="field"><label>LINK CHUYỂN HƯỚNG 1 (WEB UP ĐẦU TIÊN)</label><input id="redirectUrl1" placeholder="https://..."></div>
-            <div class="field"><label>LINK CHUYỂN HƯỚNG 2 (WEB HIỆN MÃ)</label><input id="redirectUrl2" placeholder="https://..."></div>
-            <button class="primary" id="newLink">+ Tạo link mã random</button>
-            <div class="tablewrap"><table><thead><tr><th>Mã link</th><th>Trạng thái</th><th>Link 1 / Link 2</th></tr></thead><tbody id="linkRows"><tr><td colspan="3">Đang tải...</td></tr></tbody></table></div>
+            <div class="field"><label>LINK VƯỢT (NHIỆM VỤ - VD: mduy.com/ma.html)</label><input id="bypassUrl" placeholder="https://mduy.com/ma.html"></div>
+            <div class="field"><label>LINK VỀ (SAU KHI LẤY ACC)</label><input id="redirectUrl2" placeholder="https://zalo.me/g/..."></div>
+            <button class="primary" id="saveConfig">LƯU CẤU HÌNH</button>
         </div>
     </div>
 </section>
@@ -141,22 +132,12 @@ const ADMIN_PIN = "123456";
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-// ==========================================
-// 1. BẢO MẬT: CHẠM 4 NGÓN 6 LẦN ĐỂ HIỆN ADMIN
-// ==========================================
-let touchCount = 0;
-let touchTimer = null;
-
+let touchCount = 0, touchTimer = null;
 document.body.addEventListener('touchstart', function(e) {
-    // Kiểm tra xem có đúng 4 ngón tay chạm vào không
     if (e.touches.length === 4) {
         touchCount++;
-        
-        // Reset bộ đếm nếu quá 2 giây không chạm tiếp
         clearTimeout(touchTimer);
         touchTimer = setTimeout(() => { touchCount = 0; }, 2000);
-
-        // Nếu đủ 6 lần thì hiện tab Admin
         if (touchCount >= 6) {
             $('adminTab').classList.remove('hidden');
             touchCount = 0; 
@@ -165,22 +146,14 @@ document.body.addEventListener('touchstart', function(e) {
     }
 });
 
-// ==========================================
-// 2. XỬ LÝ ĐƯỜNG DẪN (ROUTING)
-// ==========================================
 function handleRouting() {
-    const hash = window.location.hash; // Lấy phần #/ma-random trên URL
-    
+    const hash = window.location.hash;
     if (hash && hash.startsWith('#/MDUYK-')) {
-        // Nếu có mã trên URL -> Hiện trang trung gian (Landing Page)
         $('client').classList.add('hidden');
         $('landingView').classList.remove('hidden');
         $('admin').classList.add('hidden');
-        
-        // Lưu mã hiện tại vào biến toàn cục
         window.currentToken = hash.replace('#/', '');
     } else {
-        // Nếu không có mã -> Hiện trang chủ
         $('client').classList.remove('hidden');
         $('landingView').classList.add('hidden');
     }
@@ -188,38 +161,63 @@ function handleRouting() {
 window.addEventListener('hashchange', handleRouting);
 window.addEventListener('load', handleRouting);
 
-// Chuyển tab thủ công
 document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => {
     document.querySelectorAll('[data-view]').forEach(x => x.classList.toggle('active', x === b));
-    document.querySelectorAll('.view').forEach(x => x.classList.add('hidden')); // Ẩn hết
-    $(b.dataset.view).classList.remove('hidden'); // Hiện tab được chọn
+    document.querySelectorAll('.view').forEach(x => x.classList.add('hidden'));
+    $(b.dataset.view).classList.remove('hidden');
 });
 
-// Chuyển tab con trong Admin
 document.querySelectorAll('[data-admin]').forEach(b => b.onclick = () => {
     document.querySelectorAll('.adminpage').forEach(x => x.classList.add('hidden'));
     $(b.dataset.admin).classList.remove('hidden');
-    if(b.dataset.admin === 'links') loadLinksData();
+    if(b.dataset.admin === 'links') loadConfig();
     if(b.dataset.admin === 'inventory') loadInventoryData();
 });
 
-// ==========================================
-// 3. TRANG TRUNG GIAN: LẤY MÃ & CHUYỂN HƯỚNG
-// ==========================================
+$('startTaskBtn').onclick = async () => {
+    $('startTaskBtn').disabled = true;
+    $('startTaskBtn').textContent = 'ĐANG TẠO MÃ...';
+    try {
+        // Tạo mã ngẫu nhiên mới
+        const dynamicToken = 'MDUYK-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        
+        // Lưu lên firebase
+        await fetch(`${FIREBASE_URL}links/${dynamicToken}.json`, {
+            method: 'PUT',
+            body: JSON.stringify({ used: false, createdAt: Date.now() })
+        });
+
+        const configRes = await fetch(`${FIREBASE_URL}config.json`);
+        const config = await configRes.json();
+
+        if (config && config.bypassUrl) {
+            // Mã hóa cái Token này để gửi sang web nhiệm vụ, khi quay lại nó sẽ tự động điền
+            const finalUrl = config.bypassUrl + "?token=" + dynamicToken;
+            window.location.href = finalUrl;
+        } else {
+            // Nếu chưa cấu hình thì nhảy luôn tới trang nhận
+            window.location.hash = "#/" + dynamicToken;
+        }
+    } catch (e) {
+        alert("Lỗi kết nối!");
+        $('startTaskBtn').disabled = false;
+        $('startTaskBtn').textContent = 'LÀM NHIỆM VỤ NHẬN ACC →';
+    }
+};
+
 $('getGiftBtn').onclick = async () => {
     const token = window.currentToken;
     if (!token) return alert("Lỗi mã!");
 
     $('getGiftBtn').disabled = true;
-    $('getGiftBtn').textContent = 'ĐANG LẤY MÃ...';
+    $('getGiftBtn').textContent = 'ĐANG LẤY ACC...';
 
     try {
         const linkRes = await fetch(`${FIREBASE_URL}links/${token}.json`);
         const linkData = await linkRes.json();
         
-        if (!linkData || linkData.used) throw new Error("Mã đã được sử dụng hoặc không tồn tại.");
+        if (!linkData || linkData.used) throw new Error("Mã này đã bị vô hiệu hóa hoặc không tồn tại.");
 
-        // Lấy acc
         const invRes = await fetch(`${FIREBASE_URL}inventory.json`);
         const invData = await invRes.json();
         let accKey = null, accData = null;
@@ -228,40 +226,31 @@ $('getGiftBtn').onclick = async () => {
         }
         if (!accData) throw new Error("Kho đã hết acc!");
 
-        // Đánh dấu đã dùng
-        await fetch(`${FIREBASE_URL}inventory/${accKey}/used.json`, { method: 'PUT', body: 'true' });
+        // Gạch mã
         await fetch(`${FIREBASE_URL}links/${token}/used.json`, { method: 'PUT', body: 'true' });
+        await fetch(`${FIREBASE_URL}inventory/${accKey}/used.json`, { method: 'PUT', body: 'true' });
 
-        // Hiển thị acc
         $('giftCredential').textContent = accData.user + ' | ' + accData.pass;
         $('giftResult').classList.add('show');
-        $('getGiftBtn').textContent = 'ĐÃ LẤY MÃ';
+        $('getGiftBtn').textContent = 'ĐÃ LẤY ACC';
         
-        // Biến đổi URL và chuyển hướng tới Link 2 (sau 3 giây)
-        setTimeout(() => {
-            if(linkData.redirectUrl2) {
-                // Biến đổi URL thành mduy.com/ma-random (nếu muốn)
-                window.location.href = linkData.redirectUrl2 + "?code=" + token; 
-            } else {
-                alert("Vui lòng copy mã trên màn hình!");
-            }
-        }, 3000);
+        setTimeout(async () => {
+            const configRes = await fetch(`${FIREBASE_URL}config.json`);
+            const config = await configRes.json();
+            if(config && config.redirectUrl2) window.location.href = config.redirectUrl2;
+        }, 4000);
 
     } catch (e) {
         alert(e.message);
-        $('getGiftBtn').disabled = false;
-        $('getGiftBtn').textContent = 'LẤY MÃ NGAY →';
+        $('getGiftBtn').textContent = 'MÃ ĐÃ BỊ VÔ HIỆU HÓA';
     }
 };
 
-// ==========================================
-// 4. CHỨC NĂNG ADMIN
-// ==========================================
 $('unlockBtn').onclick = () => {
     if ($('pinInput').value === ADMIN_PIN) {
         $('lockScreen').classList.add('hidden');
         $('adminPanel').classList.remove('hidden');
-        loadInventoryData(); loadLinksData();
+        loadInventoryData(); loadConfig();
     } else { alert("Sai mã PIN!"); }
 };
 
@@ -280,23 +269,13 @@ async function loadInventoryData() {
     $('stockCount').textContent = stock; $('issuedCount').textContent = issued;
 }
 
-async function loadLinksData() {
-    const res = await fetch(`${FIREBASE_URL}links.json`);
-    const data = await res.json();
-    let html = '', active = 0;
-    if (data) {
-        for (const token in data) {
-            const item = data[token];
-            if(!item.used) active++;
-            html += `<tr>
-                <td>${esc(token)}</td>
-                <td class="status ${item.used ? 'used' : ''}">${item.used ? 'ĐÃ DÙNG' : 'HIỆU LỰC'}</td>
-                <td>1: ${item.redirectUrl1 ? 'Có' : 'Không'}<br>2: ${item.redirectUrl2 ? 'Có' : 'Không'}</td>
-            </tr>`;
-        }
+async function loadConfig() {
+    const res = await fetch(`${FIREBASE_URL}config.json`);
+    const config = await res.json();
+    if (config) {
+        if(config.bypassUrl) $('bypassUrl').value = config.bypassUrl;
+        if(config.redirectUrl2) $('redirectUrl2').value = config.redirectUrl2;
     }
-    $('linkRows').innerHTML = html || '<tr><td colspan="3">Chưa có</td></tr>';
-    $('activeCount').textContent = active;
 }
 
 $('addAccounts').onclick = async () => {
@@ -315,24 +294,11 @@ $('addAccounts').onclick = async () => {
     loadInventoryData();
 };
 
-$('newLink').onclick = async () => {
-    const url1 = $('redirectUrl1').value.trim();
-    const url2 = $('redirectUrl2').value.trim();
-    
-    // Tạo mã ngẫu nhiên dạng MDUYK-XXXX
-    const token = 'MDUYK-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-    
-    await fetch(`${FIREBASE_URL}links/${token}.json`, {
-        method: 'PUT',
-        body: JSON.stringify({ used: false, redirectUrl1: url1, redirectUrl2: url2 })
-    });
-    
-    // Hiển thị link dạng mduy.com/#/MDUYK-XXXX cho Admin copy
-    const fullLink = window.location.origin + window.location.pathname + "#/" + token;
-    alert(`Đã tạo mã!\n\nLink gửi khách:\n${fullLink}`);
-    
-    $('redirectUrl1').value = ''; $('redirectUrl2').value = '';
-    loadLinksData();
+$('saveConfig').onclick = async () => {
+    const bypassUrl = $('bypassUrl').value.trim();
+    const redirectUrl2 = $('redirectUrl2').value.trim();
+    await fetch(`${FIREBASE_URL}config.json`, { method: 'PUT', body: JSON.stringify({ bypassUrl, redirectUrl2 }) });
+    alert("Đã lưu cấu hình!");
 };
 </script>
 </body>
