@@ -30,6 +30,8 @@ h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-he
 <script>
 const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
 let token = "";
+
+
 let url = window.location.href;
 if (url.includes("MDUYK-")) {
     let parts = url.split("MDUYK-");
@@ -38,7 +40,8 @@ if (url.includes("MDUYK-")) {
     token = "MDUYK-" + Math.random().toString(36).substring(2, 8).toUpperCase();
     window.history.replaceState(null, '', window.location.pathname + "/" + token);
 }
-    acc
+
+
 document.getElementById('actionBtn').onclick = function() {
     let btn = this;
     btn.disabled = true;
@@ -61,16 +64,16 @@ document.getElementById('actionBtn').onclick = function() {
         }
         if (!accData) throw new Error("Kho đã hết acc!");
 
-        
+    
         fetch(FIREBASE_URL + "links/" + token + ".json", { method: 'PUT', body: JSON.stringify({used: true}) });
         fetch(FIREBASE_URL + "inventory/" + accKey + "/used.json", { method: 'PUT', body: 'true' });
 
-
+        
         document.getElementById('accText').textContent = accData.user + " | " + accData.pass;
         document.getElementById('resultBox').style.display = "block";
         btn.textContent = 'ĐÃ LẤY ACC';
 
-
+    
         return fetch(FIREBASE_URL + "config.json");
     })
     .then(res => res.json())
