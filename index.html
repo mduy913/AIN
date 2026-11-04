@@ -4,302 +4,186 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MDUYK ACCOUNT</title>
-<style>
-:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac;--green:#61c995}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
-.wrap{max-width:1050px;margin:auto;padding:24px 18px 50px}
-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px;gap:12px}
-.brand{font-weight:900;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
-.badge{font-size:11px;color:#9de4bd;border:1px solid #28513f;background:#10271e;padding:7px 10px;border-radius:30px}
-.hero{padding:48px 0 24px}.eyebrow{font-size:11px;color:#f08089;letter-spacing:.2em;font-weight:900}
-h1{font-size:clamp(38px,7vw,62px);line-height:1;margin:12px 0}h1 span{color:#e24a57}
-.muted{color:var(--muted);font-size:13px;line-height:1.65}
-.tabs{display:flex;gap:8px;margin:20px 0}.tab,button{font:inherit;cursor:pointer}
-.tab,.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:11px 15px;font-weight:800}
-.tab.active,.primary{background:var(--red);border-color:var(--red);color:white}
-.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
-h2{font-size:18px;margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}
-label{font-size:11px;font-weight:800;color:#d9c9cd}
-input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:white;font:inherit}
-textarea{min-height:120px;resize:vertical}
-button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:0;border-radius:10px;font-weight:900;width:100%}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
-.stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}
-.notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}
-.result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}
-.credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}
-.hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
-.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}
-table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}
-.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.footer{text-align:center;color:#8e7d82;font-size:11px;margin-top:25px;line-height:1.6}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:17px}.wrap{padding:17px 13px 35px}}
-</style>
+<style>:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac;--green:#61c995}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.wrap{max-width:1050px;margin:auto;padding:24px 18px 50px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px;gap:12px}.brand{font-weight:900;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.badge{font-size:11px;color:#9de4bd;border:1px solid #28513f;background:#10271e;padding:7px 10px;border-radius:30px}.hero{padding:48px 0 24px}.eyebrow{font-size:11px;color:#f08089;letter-spacing:.2em;font-weight:900}h1{font-size:clamp(38px,7vw,62px);line-height:1;margin:12px 0}h1 span{color:#e24a57}.muted{color:var(--muted);font-size:13px;line-height:1.65}.tabs{display:flex;gap:8px;margin:20px 0}.tab,button{font:inherit;cursor:pointer}.tab,.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:11px 15px;font-weight:800}.tab.active,.primary{background:var(--red);border-color:var(--red);color:white}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}h2{font-size:18px;margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}label{font-size:11px;font-weight:800;color:#d9c9cd}input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:white;font:inherit}textarea{min-height:120px;resize:vertical}button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:0;border-radius:10px;font-weight:900;width:100%}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}.notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}.result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}.credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}.hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.footer{text-align:center;color:#8e7d82;font-size:11px;margin-top:25px;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:17px}.wrap{padding:17px 13px 35px}}</style>
 </head>
 <body>
 <div class="wrap">
 <header><div class="brand">MDUYK ACCOUNT<small>SECURE REDEMPTION SYSTEM</small></div><div class="badge" id="topBadge">● HỆ THỐNG</div></header>
-
-<nav class="tabs" id="navTabs">
-    <button class="tab active" data-view="client">Nhận tài khoản</button>
-    <button class="tab hidden" id="adminTab" data-view="admin">Admin quản lý</button>
-</nav>
-
-<!-- TRANG CHỦ -->
+<nav class="tabs" id="navTabs"><button class="tab active" data-view="client">Nhận tài khoản</button><button class="tab hidden" id="adminTab" data-view="admin">Admin quản lý</button></nav>
 <section id="client" class="view">
-    <section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
-    <div class="grid">
-        <div class="panel">
-            <div class="eyebrow">01 / REDEMPTION</div>
-            <h2>Nhận tài khoản</h2>
-            <p class="muted" style="margin-bottom: 15px;">Bấm nút bên dưới để làm nhiệm vụ và nhận tài khoản.</p>
-            <button class="primary" id="startTaskBtn">LÀM NHIỆM VỤ NHẬN ACC →</button>
-            <div class="notice">Lưu ý: Mỗi phiên làm nhiệm vụ chỉ cấp 1 mã duy nhất. Lấy xong mã sẽ bị vô hiệu hóa vĩnh viễn.</div>
-        </div>
-        <div class="panel">
-            <div class="eyebrow">02 / LINK STATUS</div>
-            <h2>Trạng thái</h2>
-            <p class="muted">Hệ thống tự động kiểm tra và cấp phát.</p>
-            <div class="stats">
-                <div class="stat"><b>24/7</b><small>Hoạt động</small></div>
-                <div class="stat"><b>1×</b><small>Lượt nhận</small></div>
-                <div class="stat"><b>Auto</b><small>Cấp phát</small></div>
-            </div>
-        </div>
-    </div>
+<section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
+<div class="grid"><div class="panel"><div class="eyebrow">01 / REDEMPTION</div><h2>Nhận tài khoản</h2><p class="muted" style="margin-bottom:15px;">Bấm nút bên dưới để tạo link nhiệm vụ cá nhân và nhận tài khoản.</p><button class="primary" id="startTaskBtn">TẠO LINK NHIỆM VỤ →</button><div class="notice">Lưu ý: Mỗi link tạo ra chỉ có giá trị 1 lần duy nhất.</div></div><div class="panel"><div class="eyebrow">02 / LINK STATUS</div><h2>Trạng thái</h2><p class="muted">Hệ thống tự động kiểm tra và cấp phát.</p><div class="stats"><div class="stat"><b>24/7</b><small>Hoạt động</small></div><div class="stat"><b>1×</b><small>Lượt nhận</small></div><div class="stat"><b>Auto</b><small>Cấp phát</small></div></div></div></div>
 </section>
-
-<!-- TRANG NHẬN ACC SAU KHI VƯỢT LINK -->
-<section id="landingView" class="view hidden">
-    <div class="panel" style="max-width:600px; margin: 40px auto; text-align:center;">
-        <div class="eyebrow" style="color:#61c995;">LINK REDEMPTION</div>
-        <h2>CHÚC MỪNG BẠN!</h2>
-        <p class="muted">Bạn đã hoàn thành nhiệm vụ. Hãy bấm nút bên dưới để nhận tài khoản.</p>
-        
-        <button class="primary" id="getGiftBtn" style="margin-top:20px;">LẤY ACC NGAY →</button>
-        
-        <div class="result" id="giftResult">
-            <b>✓ Tài khoản của bạn đây:</b>
-            <div class="credential" id="giftCredential"></div>
-            <p class="muted" style="margin-top:10px; font-size:12px;">Hãy copy tài khoản này. Hệ thống sẽ tự chuyển hướng sau 3 giây...</p>
-        </div>
-    </div>
-</section>
-
-<!-- KHU VỰC ADMIN -->
+<section id="landingView" class="view hidden"><div class="panel" style="max-width:600px;margin:40px auto;text-align:center;"><div class="eyebrow" style="color:#61c995;">LINK REDEMPTION</div><h2>CHÚC MỪNG BẠN!</h2><p class="muted">Bạn đã truy cập đúng link nhiệm vụ. Hãy bấm nút bên dưới để lấy tài khoản.</p><button class="primary" id="getGiftBtn" style="margin-top:20px;">LẤY ACC NGAY →</button><div class="result" id="giftResult"><b>✓ Tài khoản của bạn đây:</b><div class="credential" id="giftCredential"></div><p class="muted" style="margin-top:10px;font-size:12px;">Hãy copy tài khoản này. Hệ thống sẽ tự chuyển hướng sau 3 giây...</p></div></div></section>
 <section id="admin" class="view hidden">
-    <div id="lockScreen" class="panel" style="text-align:center; padding: 40px 20px;">
-        <div class="eyebrow">SECURITY CHECK</div>
-        <h2>KHU VỰC QUẢN TRỊ</h2>
-        <p class="muted">Vui lòng nhập mã PIN để truy cập</p>
-        <input type="password" id="pinInput" placeholder="••••••" style="width:200px; text-align:center; font-size:20px; letter-spacing:5px; margin: 15px auto;">
-        <button class="primary" id="unlockBtn" style="width:200px; margin:auto;">MỞ KHÓA</button>
-    </div>
-
-    <div id="adminPanel" class="panel hidden">
-        <div class="eyebrow">ADMIN CONTROL</div>
-        <h2>Trung tâm quản trị</h2>
-        <div class="stats">
-            <div class="stat"><b id="stockCount">0</b><small>Acc trong kho</small></div>
-            <div class="stat"><b id="issuedCount">0</b><small>Đã phát</small></div>
-            <div class="stat"><b id="activeCount">0</b><small>Link hiệu lực</small></div>
-        </div>
-        <div class="adminnav">
-            <button class="secondary" data-admin="inventory">Kho tài khoản</button>
-            <button class="secondary" data-admin="links">Cấu hình Nhiệm Vụ</button>
-        </div>
-        
-        <div id="inventory" class="adminpage">
-            <div class="field"><label>THÊM ACC (mỗi dòng: username | password)</label><textarea id="newAccounts" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div>
-            <button class="primary" id="addAccounts">THÊM VÀO KHO</button>
-            <div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="inventoryRows"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div>
-        </div>
-        
-        <div id="links" class="adminpage hidden">
-            <div class="field"><label>LINK VƯỢT (NHIỆM VỤ - VD: mduy.com/ma.html)</label><input id="bypassUrl" placeholder="https://mduy.com/ma.html"></div>
-            <div class="field"><label>LINK VỀ (SAU KHI LẤY ACC)</label><input id="redirectUrl2" placeholder="https://zalo.me/g/..."></div>
-            <button class="primary" id="saveConfig">LƯU CẤU HÌNH</button>
-        </div>
-    </div>
+<div id="lockScreen" class="panel" style="text-align:center;padding:40px 20px;"><div class="eyebrow">SECURITY CHECK</div><h2>KHU VỰC QUẢN TRỊ</h2><p class="muted">Vui lòng nhập mã PIN để truy cập</p><input type="password" id="pinInput" placeholder="••••••" style="width:200px;text-align:center;font-size:20px;letter-spacing:5px;margin:15px auto;"><button class="primary" id="unlockBtn" style="width:200px;margin:auto;">MỞ KHÓA</button></div>
+<div id="adminPanel" class="panel hidden"><div class="eyebrow">ADMIN CONTROL</div><h2>Trung tâm quản trị</h2><div class="stats"><div class="stat"><b id="stockCount">0</b><small>Acc trong kho</small></div><div class="stat"><b id="issuedCount">0</b><small>Đã phát</small></div></div><div class="adminnav"><button class="secondary" data-admin="inventory">Kho tài khoản</button><button class="secondary" data-admin="config">Cấu hình</button></div><div id="inventory" class="adminpage"><div class="field"><label>THÊM ACC (mỗi dòng: username | password)</label><textarea id="newAccounts" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div><button class="primary" id="addAccounts">THÊM VÀO KHO</button><div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="inventoryRows"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div></div><div id="config" class="adminpage hidden"><div class="field"><label>LINK NHIỆM VỤ (Web vượt)</label><input id="bypassUrl" placeholder="https://zalo.me/g/..."></div><div class="field"><label>LINK VỀ (Sau khi lấy acc)</label><input id="redirectUrl" placeholder="https://zalo.me/g/..."></div><button class="primary" id="saveConfig">LƯU CẤU HÌNH</button></div></div>
 </section>
-
 <div class="footer">MDUYK ACCOUNT<br>Hệ thống phân phối tài khoản tự động.</div>
 </div>
-
 <script>
-const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
-const ADMIN_PIN = "123456"; 
-const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+(function(){
+var _0x1a=["https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/","123456","#/","MDUYK-","links/","inventory","config","used","user","pass","bypassUrl","redirectUrl","value","trim","replace","#","/","#/","toUpperCase","substring","startsWith","location","hash","href","reload","#landingView","#client","#admin","#adminTab","#pinInput","#unlockBtn","#lockScreen","#adminPanel","#giftCredential","#giftResult","#getGiftBtn","#inventoryRows","#stockCount","#issuedCount","#bypassUrl","#redirectUrl","innerHTML","classList","add","remove","hidden","show","textContent","disabled","length","split","map","filter","Boolean","forEach","join","POST","PUT","JSON","stringify","parse","json","GET","alert","Mã không hợp lệ","Lỗi kết nối","Kho trống"];
+var F=_0x1a[0];
+var P=_0x1a[1];
+var d=document;
+var w=window;
+function _0x2b(_0x3c){return d.querySelector(_0x3c);}
+function _0x4d(_0x5e){return d.querySelectorAll(_0x5e);}
+function _0x6f(_0x7g){return _0x7g[_0x1a[13]]();}
+function _0x8h(_0x9i){return _0x9i[_0x1a[12]][_0x1a[13]]();}
 
-let touchCount = 0, touchTimer = null;
-document.body.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 4) {
-        touchCount++;
-        clearTimeout(touchTimer);
-        touchTimer = setTimeout(() => { touchCount = 0; }, 2000);
-        if (touchCount >= 6) {
-            $('adminTab').classList.remove('hidden');
-            touchCount = 0; 
-            alert("Đã mở khóa Tab Admin!");
-        }
-    }
+d.oncontextmenu=function(e){e.preventDefault();return false;};
+d.onkeydown=function(e){if(e.keyCode==123||(e.ctrlKey&&e.shiftKey&&(e.keyCode==73||e.keyCode==74||e.keyCode==67))||(e.ctrlKey&&e.keyCode==85)){e.preventDefault();return false;}};
+
+var _0xa1=0,_0xb2=null;
+d.body.addEventListener('touchstart',function(e){
+if(e.touches.length===4){
+_0xa1++;
+clearTimeout(_0xb2);
+_0xb2=setTimeout(function(){_0xa1=0;},2000);
+if(_0xa1>=6){
+_0x2b(_0x1a[27]).classList.remove(_0x1a[44]);
+_0xa1=0;
+}
+}
 });
 
-function handleRouting() {
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#/MDUYK-')) {
-        $('client').classList.add('hidden');
-        $('landingView').classList.remove('hidden');
-        $('admin').classList.add('hidden');
-        window.currentToken = hash.replace('#/', '');
-    } else {
-        $('client').classList.remove('hidden');
-        $('landingView').classList.add('hidden');
-    }
+function _0xc3(){
+var _0xd4=w[_0x1a[21]][_0x1a[22]]?w[_0x1a[21]][_0x1a[22]][_0x1a[14]](_0x1a[16],''):w[_0x1a[21]].pathname[_0x1a[14]](_0x1a[15],'');
+if(_0xd4[_0x1a[20]](_0x1a[3])){
+w._0xe5=_0xd4[_0x1a[18]]();
+_0x2b(_0x1a[25]).classList.add(_0x1a[44]);
+_0x2b(_0x1a[26]).classList.add(_0x1a[44]);
+_0x2b(_0x1a[24]).classList.remove(_0x1a[44]);
+w.history.replaceState(null,'',_0x1a[15]+w._0xe5);
+}else{
+_0x2b(_0x1a[25]).classList.remove(_0x1a[44]);
+_0x2b(_0x1a[24]).classList.add(_0x1a[44]);
 }
-window.addEventListener('hashchange', handleRouting);
-window.addEventListener('load', handleRouting);
+}
+w.addEventListener('hashchange',_0xc3);
+w.addEventListener('load',function(){_0xc3();});
 
-document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => {
-    document.querySelectorAll('[data-view]').forEach(x => x.classList.toggle('active', x === b));
-    document.querySelectorAll('.view').forEach(x => x.classList.add('hidden'));
-    $(b.dataset.view).classList.remove('hidden');
-});
+_0x4d('[data-view]').forEach(function(b){b.onclick=function(){
+_0x4d('[data-view]').forEach(function(x){x.classList.toggle('active',x===b);});
+_0x4d('.view').forEach(function(x){x.classList.add(_0x1a[44]);});
+_0x2b('#'+b.dataset.view).classList.remove(_0x1a[44]);
+};});
 
-document.querySelectorAll('[data-admin]').forEach(b => b.onclick = () => {
-    document.querySelectorAll('.adminpage').forEach(x => x.classList.add('hidden'));
-    $(b.dataset.admin).classList.remove('hidden');
-    if(b.dataset.admin === 'links') loadConfig();
-    if(b.dataset.admin === 'inventory') loadInventoryData();
-});
+_0x4d('[data-admin]').forEach(function(b){b.onclick=function(){
+_0x4d('.adminpage').forEach(function(x){x.classList.add(_0x1a[44]);});
+_0x2b('#'+b.dataset.admin).classList.remove(_0x1a[44]);
+if(b.dataset.admin==='config')_0xf6();
+if(b.dataset.admin==='inventory')_0x107();
+};});
 
-$('startTaskBtn').onclick = async () => {
-    $('startTaskBtn').disabled = true;
-    $('startTaskBtn').textContent = 'ĐANG TẠO MÃ...';
-    try {
-        // Tạo mã ngẫu nhiên mới
-        const dynamicToken = 'MDUYK-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-        
-        // Lưu lên firebase
-        await fetch(`${FIREBASE_URL}links/${dynamicToken}.json`, {
-            method: 'PUT',
-            body: JSON.stringify({ used: false, createdAt: Date.now() })
-        });
-
-        const configRes = await fetch(`${FIREBASE_URL}config.json`);
-        const config = await configRes.json();
-
-        if (config && config.bypassUrl) {
-            // Mã hóa cái Token này để gửi sang web nhiệm vụ, khi quay lại nó sẽ tự động điền
-            const finalUrl = config.bypassUrl + "?token=" + dynamicToken;
-            window.location.href = finalUrl;
-        } else {
-            // Nếu chưa cấu hình thì nhảy luôn tới trang nhận
-            window.location.hash = "#/" + dynamicToken;
-        }
-    } catch (e) {
-        alert("Lỗi kết nối!");
-        $('startTaskBtn').disabled = false;
-        $('startTaskBtn').textContent = 'LÀM NHIỆM VỤ NHẬN ACC →';
-    }
+_0x2b('#startTaskBtn').onclick=async function(){
+this.disabled=true;this.textContent='ĐANG TẠO...';
+try{
+var _0x118=_0x1a[3]+Math.random().toString(36).substring(2,8).toUpperCase();
+await fetch(F+_0x1a[4]+_0x118+'.json',{method:_0x1a[54],body:JSON.stringify({used:false})});
+var _0x129=await fetch(F+_0x1a[6]+'.json');
+var _0x13a=await _0x129.json();
+if(_0x13a&&_0x13a[_0x1a[10]]){
+w[_0x1a[21]].href=_0x13a[_0x1a[10]]+(_0x13a[_0x1a[10]].includes('?')?'&':'?')+"token="+_0x118;
+}else{
+w[_0x1a[21]].href=_0x1a[17]+_0x118;
+}
+}catch(e){
+alert(_0x1a[60]);
+this.disabled=false;this.textContent='TẠO LINK NHIỆM VỤ →';
+}
 };
 
-$('getGiftBtn').onclick = async () => {
-    const token = window.currentToken;
-    if (!token) return alert("Lỗi mã!");
-
-    $('getGiftBtn').disabled = true;
-    $('getGiftBtn').textContent = 'ĐANG LẤY ACC...';
-
-    try {
-        const linkRes = await fetch(`${FIREBASE_URL}links/${token}.json`);
-        const linkData = await linkRes.json();
-        
-        if (!linkData || linkData.used) throw new Error("Mã này đã bị vô hiệu hóa hoặc không tồn tại.");
-
-        const invRes = await fetch(`${FIREBASE_URL}inventory.json`);
-        const invData = await invRes.json();
-        let accKey = null, accData = null;
-        for (const key in invData) {
-            if (!invData[key].used) { accKey = key; accData = invData[key]; break; }
-        }
-        if (!accData) throw new Error("Kho đã hết acc!");
-
-        // Gạch mã
-        await fetch(`${FIREBASE_URL}links/${token}/used.json`, { method: 'PUT', body: 'true' });
-        await fetch(`${FIREBASE_URL}inventory/${accKey}/used.json`, { method: 'PUT', body: 'true' });
-
-        $('giftCredential').textContent = accData.user + ' | ' + accData.pass;
-        $('giftResult').classList.add('show');
-        $('getGiftBtn').textContent = 'ĐÃ LẤY ACC';
-        
-        setTimeout(async () => {
-            const configRes = await fetch(`${FIREBASE_URL}config.json`);
-            const config = await configRes.json();
-            if(config && config.redirectUrl2) window.location.href = config.redirectUrl2;
-        }, 4000);
-
-    } catch (e) {
-        alert(e.message);
-        $('getGiftBtn').textContent = 'MÃ ĐÃ BỊ VÔ HIỆU HÓA';
-    }
+_0x2b('#getGiftBtn').onclick=async function(){
+var _0x14b=w._0xe5;
+if(!_0x14b)return alert(_0x1a[59]);
+this.disabled=true;this.textContent='ĐANG LẤY ACC...';
+try{
+var _0x15c=await fetch(F+_0x1a[4]+_0x14b+'.json');
+var _0x16d=await _0x15c.json();
+if(!_0x16d||_0x16d[_0x1a[7]])throw new Error("Mã đã bị vô hiệu hóa.");
+var _0x17e=await fetch(F+_0x1a[5]+'.json');
+var _0x18f=await _0x17e.json();
+var _0x190=null,_0x1a1=null;
+for(var _0x1b2 in _0x18f){
+if(!_0x18f[_0x1b2][_0x1a[7]]){_0x190=_0x1b2;_0x1a1=_0x18f[_0x1b2];break;}
+}
+if(!_0x1a1)throw new Error("Kho đã hết acc!");
+await fetch(F+_0x1a[4]+_0x14b+'/used.json',{method:_0x1a[54],body:'true'});
+await fetch(F+_0x1a[5]+'/'+_0x190+'/used.json',{method:_0x1a[54],body:'true'});
+_0x2b(_0x1a[33]).textContent=_0x1a1[_0x1a[8]]+' | '+_0x1a1[_0x1a[9]];
+_0x2b(_0x1a[34]).classList.add(_0x1a[46]);
+this.textContent='ĐÃ LẤY ACC';
+setTimeout(async function(){
+var _0x1c3=await fetch(F+_0x1a[6]+'.json');
+var _0x1d4=await _0x1c3.json();
+if(_0x1d4&&_0x1d4[_0x1a[11]])w[_0x1a[21]].href=_0x1d4[_0x1a[11]];
+},4000);
+}catch(e){
+alert(e.message);
+this.textContent='MÃ ĐÃ BỊ VÔ HIỆU HÓA';
+}
 };
 
-$('unlockBtn').onclick = () => {
-    if ($('pinInput').value === ADMIN_PIN) {
-        $('lockScreen').classList.add('hidden');
-        $('adminPanel').classList.remove('hidden');
-        loadInventoryData(); loadConfig();
-    } else { alert("Sai mã PIN!"); }
+_0x2b('#unlockBtn').onclick=function(){
+if(_0x2b(_0x1a[28]).value===P){
+_0x2b(_0x1a[30]).classList.add(_0x1a[44]);
+_0x2b(_0x1a[31]).classList.remove(_0x1a[44]);
+_0x107();_0xf6();
+}else{alert("Sai mã PIN!");}
 };
 
-async function loadInventoryData() {
-    const res = await fetch(`${FIREBASE_URL}inventory.json`);
-    const data = await res.json();
-    let html = '', stock = 0, issued = 0;
-    if (data) {
-        for (const key in data) {
-            const item = data[key];
-            if(item.used) issued++; else stock++;
-            html += `<tr><td>${esc(item.user)} | ${esc(item.pass)}</td><td class="status ${item.used ? 'used' : ''}">${item.used ? 'ĐÃ PHÁT' : 'CÒN TRONG KHO'}</td></tr>`;
-        }
-    }
-    $('inventoryRows').innerHTML = html || '<tr><td colspan="2">Kho trống</td></tr>';
-    $('stockCount').textContent = stock; $('issuedCount').textContent = issued;
+async function _0x107(){
+var _0x1e5=await fetch(F+_0x1a[5]+'.json');
+var _0x1f6=await _0x1e5.json();
+var _0x207='',_0x218=0,_0x229=0;
+if(_0x1f6){
+for(var _0x23a in _0x1f6){
+var _0x24b=_0x1f6[_0x23a];
+if(_0x24b[_0x1a[7]])_0x229++;else _0x218++;
+_0x207+='<tr><td>'+_0x24b[_0x1a[8]]+' | '+_0x24b[_0x1a[9]]+'</td><td class="status '+(_0x24b[_0x1a[7]]?'used':'')+'">'+(_0x24b[_0x1a[7]]?'ĐÃ PHÁT':'CÒN TRONG KHO')+'</td></tr>';
+}
+}
+_0x2b(_0x1a[35]).innerHTML=_0x207||'<tr><td colspan="2">'+_0x1a[61]+'</td></tr>';
+_0x2b(_0x1a[36]).textContent=_0x218;
+_0x2b(_0x1a[37]).textContent=_0x229;
 }
 
-async function loadConfig() {
-    const res = await fetch(`${FIREBASE_URL}config.json`);
-    const config = await res.json();
-    if (config) {
-        if(config.bypassUrl) $('bypassUrl').value = config.bypassUrl;
-        if(config.redirectUrl2) $('redirectUrl2').value = config.redirectUrl2;
-    }
+async function _0xf6(){
+var _0x25c=await fetch(F+_0x1a[6]+'.json');
+var _0x26d=await _0x25c.json();
+if(_0x26d){
+if(_0x26d[_0x1a[10]])_0x2b(_0x1a[38]).value=_0x26d[_0x1a[10]];
+if(_0x26d[_0x1a[11]])_0x2b(_0x1a[39]).value=_0x26d[_0x1a[11]];
+}
 }
 
-$('addAccounts').onclick = async () => {
-    const lines = $('newAccounts').value.split('\n').map(x => x.trim()).filter(Boolean);
-    if (!lines.length) return alert('Nhập acc!');
-    let count = 0;
-    for (const line of lines) {
-        const [user, pass] = line.split('|').map(x => x.trim());
-        if (user && pass) {
-            await fetch(`${FIREBASE_URL}inventory.json`, { method: 'POST', body: JSON.stringify({ user, pass, used: false }) });
-            count++;
-        }
-    }
-    $('newAccounts').value = '';
-    alert(`Đã thêm ${count} acc!`);
-    loadInventoryData();
+_0x2b('#addAccounts').onclick=async function(){
+var _0x27e=this;
+var _0x28f=_0x8h(_0x2b('#newAccounts')).split('\n').map(function(x){return _0x6f(x)}).filter(function(x){return x});
+if(!_0x28f[_0x1a[49]])return alert('Nhập acc!');
+var _0x290=0;
+for(var _0x2a1=0;_0x2a1<_0x28f[_0x1a[49]];_0x2a1++){
+var _0x2b2=_0x28f[_0x2a1][_0x1a[50]]('|').map(function(x){return _0x6f(x)});
+if(_0x2b2[_0x1a[49]]>=2&&_0x2b2[0]&&_0x2b2[1]){
+await fetch(F+_0x1a[5]+'.json',{method:_0x1a[54],body:JSON.stringify({user:_0x2b2[0],pass:_0x2b2[1],used:false})});
+_0x290++;
+}
+}
+_0x2b('#newAccounts').value='';
+alert("Đã thêm "+_0x290+" acc!");
+_0x107();
 };
 
-$('saveConfig').onclick = async () => {
-    const bypassUrl = $('bypassUrl').value.trim();
-    const redirectUrl2 = $('redirectUrl2').value.trim();
-    await fetch(`${FIREBASE_URL}config.json`, { method: 'PUT', body: JSON.stringify({ bypassUrl, redirectUrl2 }) });
-    alert("Đã lưu cấu hình!");
+_0x2b('#saveConfig').onclick=async function(){
+var _0x2c3=_0x8h(_0x2b(_0x1a[38]));
+var _0x2d4=_0x8h(_0x2b(_0x1a[39]));
+await fetch(F+_0x1a[6]+'.json',{method:_0x1a[54],body:JSON.stringify({bypassUrl:_0x2c3,redirectUrl:_0x2d4})});
+alert("Đã lưu cấu hình!");
 };
+})();
 </script>
 </body>
 </html>
