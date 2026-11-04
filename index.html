@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MDUYK ACCOUNT</title>
+<style>:root{--bg:#0b090a;--panel:#151113;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}.wrap{max-width:500px;margin:50px auto;padding:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}h1{font-size:24px;margin:0 0 10px}.muted{color:var(--muted);font-size:13px;line-height:1.6}.field{display:grid;gap:7px;margin:20px 0}label{font-size:11px;font-weight:800;color:#d9c9cd}input{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:#fff;font:inherit}button{width:100%;padding:13px;background:var(--red);border:0;border-radius:10px;color:#fff;font-weight:900;cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}.result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}.credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}</style>
+</head>
+<body>
+<div class="wrap"><div class="panel"><h1>NHẬN TÀI KHOẢN</h1><p class="muted">Nhập mã nhận acc để lấy tài khoản.</p><div class="field"><label>MÃ NHẬN TÀI KHOẢN</label><input id="a" placeholder="Dán mã nhận acc..."></div><button id="b">NHẬN ACC NGAY →</button><div class="result" id="c"><b>✓ Nhận tài khoản thành công</b><div class="credential" id="d"></div></div></div></div>
+<script>
+(function(){
+var _0x4e2b=["https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/","#a","#b","#c","#d","value","trim","links/","inventory","used","user","pass","PUT","json","GET","textContent","classList","add","disabled","message","location","href","setTimeout","Mã sai hoặc đã dùng","Kho đã hết acc"];
+var F=_0x4e2b[0];
+var _0x6f7g=document;
+_0x6f7g[_0x4e2b[2]].onclick=async function(){
+var _0x1b2c=_0x6f7g[_0x4e2b[1]][_0x4e2b[5]][_0x4e2b[6]]();
+if(!_0x1b2c)return alert("Vui lòng nhập mã!");
+_0x6f7g[_0x4e2b[2]][_0x4e2b[18]]=true;
+_0x6f7g[_0x4e2b[2]][_0x4e2b[15]]="ĐANG XỬ LÝ...";
+try{
+var _0x2c3d=await fetch(F+_0x4e2b[7]+_0x1b2c+".json");
+var _0x3d4e=await _0x2c3d[_0x4e2b[14]]();
+if(!_0x3d4e||_0x3d4e[_0x4e2b[9]])throw new Error(_0x4e2b[22]);
+var _0x4e5f=await fetch(F+_0x4e2b[8]+".json");
+var _0x5f6g=await _0x4e5f[_0x4e2b[14]]();
+var _0x6g7h=null;
+var _0x7h8i=null;
+if(_0x5f6g){
+for(var _0x8i9j in _0x5f6g){
+if(!_0x5f6g[_0x8i9j][_0x4e2b[9]]){
+_0x6g7h=_0x5f6g[_0x8i9j];
+_0x7h8i=_0x8i9j;
+break;
+}
+}
+}
+if(!_0x6g7h)throw new Error(_0x4e2b[23]);
+await fetch(F+_0x4e2b[8]+"/"+_0x7h8i+"/"+_0x4e2b[9]+".json",{method:_0x4e2b[12],body:"true"});
+await fetch(F+_0x4e2b[7]+_0x1b2c+"/"+_0x4e2b[9]+".json",{method:_0x4e2b[12],body:"true"});
+_0x6f7g[_0x4e2b[4]][_0x4e2b[15]]=_0x6g7h[_0x4e2b[10]]+" | "+_0x6g7h[_0x4e2b[11]];
+_0x6f7g[_0x4e2b[3]][_0x4e2b[16]][_0x4e2b[17]](_0x4e2b[19]);
+_0x6f7g[_0x4e2b[2]][_0x4e2b[15]]="ĐÃ NHẬN THÀNH CÔNG";
+if(_0x3d4e[_0x4e2b[20]]){
+setTimeout(function(){window[_0x4e2b[20]].href=_0x3d4e[_0x4e2b[20]]},3000);
+}
+}catch(_0x9j0k){
+alert(_0x9j0k[_0x4e2b[21]]);
+_0x6f7g[_0x4e2b[2]][_0x4e2b[18]]=false;
+_0x6f7g[_0x4e2b[2]][_0x4e2b[15]]="NHẬN ACC NGAY →";
+}
+};
+})();
+</script>
+</body>
+</html>
