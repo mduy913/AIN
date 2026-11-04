@@ -26,7 +26,7 @@ h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-he
         <p>3. Bấm quay lại để nhận tài khoản.</p>
     </div>
 
-    <!-- NÚT NÀY BẠN CÓ THỂ GẮN LINK NHIỆM VỤ THỰC TẾ CỦA BẠN VÀO -->
+    <!-- BẠN CÓ THỂ THAY LINK NHIỆM VỤ THỰC TẾ VÀO ĐÂY -->
     <a href="https://zalo.me/g/group-cua-ban" target="_blank" class="btn" id="taskLink">BẤM VÀO ĐÂY ĐỂ LÀM NHIỆM VỤ</a>
     
     <button class="btn" id="finishBtn" style="background:#28513f; margin-top:10px;">TÔI ĐÃ LÀM XONG →</button>
@@ -37,15 +37,22 @@ h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-he
 const urlParams = new URLSearchParams(window.location.search);
 const token = urlParams.get('token');
 
-// Nếu không có token, đá về trang chủ (index.html)
+// Nếu ai đó vào ma.html mà không có token, đá về trang chủ ngay
 if (!token) {
-    window.location.href = "index.html"; 
+    // Lấy đường dẫn gốc của thư mục hiện tại (VD: /ios-project/)
+    const currentPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    window.location.replace(window.location.origin + currentPath + "/index.html"); 
 }
 
 document.getElementById('finishBtn').onclick = function() {
-    // Ép trình duyệt quay về chính xác file index.html kèm theo mã token
-    // Định dạng: https://mduy913.github.io/ios-project/index.html#/MDUYK-XXXX
-    window.location.href = "index.html#/" + token;
+    // Lấy đường dẫn gốc của thư mục hiện tại (VD: https://mduy913.github.io/ios-project/)
+    const currentPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    
+    // Trỏ thẳng về file index.html kèm mã token
+    const finalUrl = window.location.origin + currentPath + "/index.html#/" + token;
+    
+    // Dùng replace để không bị lưu lịch sử (khách không thể bấm nút Back để quay lại)
+    window.location.replace(finalUrl);
 };
 </script>
 
