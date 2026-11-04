@@ -37,15 +37,15 @@ h1{font-size:24px;margin:10px 0}.muted{color:var(--muted);font-size:14px;line-he
 const urlParams = new URLSearchParams(window.location.search);
 const token = urlParams.get('token');
 
-// Nếu không có token, đá về trang chủ
+// Nếu không có token, đá về trang chủ (index.html)
 if (!token) {
-    window.location.href = "/"; 
+    window.location.href = "index.html"; 
 }
 
 document.getElementById('finishBtn').onclick = function() {
-    // Sau khi bấm xong, đá khách về index.html kèm mã token
-    // Cấu trúc: mduy.com/#/MDUYK-XXXX
-    window.location.href = window.location.origin + window.location.pathname.replace('ma.html', '') + "#/" + token;
+    // Ép trình duyệt quay về chính xác file index.html kèm theo mã token
+    // Định dạng: https://mduy913.github.io/ios-project/index.html#/MDUYK-XXXX
+    window.location.href = "index.html#/" + token;
 };
 </script>
 
