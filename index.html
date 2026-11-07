@@ -1,236 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MDUYK ACCOUNT</title>
+<title>MDUYK REDEEM</title>
 <style>
-:root{--bg:#0b090a;--panel:#151113;--panel2:#1d1719;--red:#a91f2b;--line:#38282d;--text:#f6eef0;--muted:#b7a8ac;--green:#61c995}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
-.wrap{max-width:1050px;margin:auto;padding:24px 18px 50px}
-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px;gap:12px}
-.brand{font-weight:900;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
-.badge{font-size:11px;color:#9de4bd;border:1px solid #28513f;background:#10271e;padding:7px 10px;border-radius:30px}
-.hero{padding:48px 0 24px}.eyebrow{font-size:11px;color:#f08089;letter-spacing:.2em;font-weight:900}
-h1{font-size:clamp(38px,7vw,62px);line-height:1;margin:12px 0}h1 span{color:#e24a57}
-.muted{color:var(--muted);font-size:13px;line-height:1.65}
-.tabs{display:flex;gap:8px;margin:20px 0}.tab,button{font:inherit;cursor:pointer}
-.tab,.secondary{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:11px 15px;font-weight:800}
-.tab.active,.primary{background:var(--red);border-color:var(--red);color:white}
-.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
-h2{font-size:18px;margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}
-label{font-size:11px;font-weight:800;color:#d9c9cd}
-input,textarea{width:100%;padding:12px;background:#0d0a0b;border:1px solid var(--line);border-radius:9px;color:white;font:inherit}
-textarea{min-height:120px;resize:vertical}
-button:disabled{opacity:.5;cursor:not-allowed}.primary{padding:13px 16px;border:0;border-radius:10px;font-weight:900;width:100%}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
-.stat{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}
-.notice{background:#211619;border:1px solid #5b4247;border-radius:10px;padding:12px;margin-top:14px;color:#d8c4c8;font-size:12px;line-height:1.6}
-.result{display:none;margin-top:14px;padding:14px;border:1px solid #28513f;background:#10251c;border-radius:10px}.result.show{display:block}
-.credential{font:13px monospace;white-space:pre-wrap;word-break:break-all;background:#0a1510;padding:12px;border-radius:8px;margin-top:9px}
-.hidden{display:none!important}.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
-.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:14px}
-table{width:100%;border-collapse:collapse;min-width:420px;font-size:12px}td,th{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px}
-.status{color:#8de0b5;font-weight:800}.used{color:#f08a92}.footer{text-align:center;color:#8e7d82;font-size:11px;margin-top:25px;line-height:1.6}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:17px}.wrap{padding:17px 13px 35px}}
+body { background: #0b090a; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+.panel { background: #151113; border: 1px solid #38282d; padding: 30px; border-radius: 15px; text-align: center; max-width: 400px; width: 90%; }
+button { background: #a91f2b; color: white; border: none; padding: 15px; width: 100%; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+button:disabled { background: #555; }
+.result { display: none; margin-top: 15px; background: #10251c; border: 1px solid #28513f; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 18px; color: #61c995; }
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><div class="brand">MDUYK ACCOUNT<small>SECURE REDEMPTION SYSTEM</small></div><div class="badge" id="topBadge">● HỆ THỐNG</div></header>
-<nav class="tabs" id="navTabs"><button class="tab active" data-view="client">Nhận tài khoản</button><button class="tab hidden" id="adminTab" data-view="admin">Admin quản lý</button></nav>
-
-<section id="client" class="view">
-    <section class="hero"><div class="eyebrow">ACCOUNT DISTRIBUTION PLATFORM</div><h1>CLAIM YOUR<br><span>ACCOUNT.</span></h1><p class="muted">Hệ thống phát tài khoản tự động qua link nhiệm vụ.</p></section>
-    <div class="grid">
-        <div class="panel">
-            <div class="eyebrow">01 / REDEMPTION</div>
-            <h2>Nhận tài khoản</h2>
-            <p class="muted" style="margin-bottom:15px;">Bấm nút bên dưới để làm nhiệm vụ và nhận tài khoản.</p>
-            <button class="primary" id="startTaskBtn">NHẬN ACC NGAY →</button>
-            <div class="notice">Lưu ý: Hệ thống sẽ chuyển hướng bạn sang trang làm nhiệm vụ.</div>
-        </div>
-        <div class="panel">
-            <div class="eyebrow">02 / LINK STATUS</div>
-            <h2>Trạng thái</h2>
-            <p class="muted">Hệ thống tự động kiểm tra và cấp phát.</p>
-            <div class="stats">
-                <div class="stat"><b>24/7</b><small>Hoạt động</small></div>
-                <div class="stat"><b>1×</b><small>Lượt nhận</small></div>
-                <div class="stat"><b>Auto</b><small>Cấp phát</small></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="admin" class="view hidden">
-    <div id="lockScreen" class="panel" style="text-align:center;padding:40px 20px;">
-        <div class="eyebrow">SECURITY CHECK</div>
-        <h2>KHU VỰC QUẢN TRỊ</h2>
-        <p class="muted">Vui lòng nhập mã PIN để truy cập</p>
-        <input type="password" id="pinInput" placeholder="••••••" style="width:200px;text-align:center;font-size:20px;letter-spacing:5px;margin:15px auto;">
-        <button class="primary" id="unlockBtn" style="width:200px;margin:auto;">MỞ KHÓA</button>
-    </div>
-    
-    <div id="adminPanel" class="panel hidden">
-        <div class="eyebrow">ADMIN CONTROL</div>
-        <h2>Trung tâm quản trị</h2>
-        <div class="stats">
-            <div class="stat"><b id="stockCount">0</b><small>Acc trong kho</small></div>
-            <div class="stat"><b id="issuedCount">0</b><small>Đã phát</small></div>
-        </div>
-        <div class="adminnav">
-            <button class="secondary" data-admin="inventory">Kho tài khoản</button>
-            <button class="secondary" data-admin="config">Cấu hình</button>
-        </div>
-        
-        <div id="inventory" class="adminpage">
-            <div class="field"><label>THÊM ACC (mỗi dòng: username | password)</label><textarea id="newAccounts" placeholder="user1 | pass1&#10;user2 | pass2"></textarea></div>
-            <button class="primary" id="addAccounts">THÊM VÀO KHO</button>
-            <div class="tablewrap"><table><thead><tr><th>Tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="inventoryRows"><tr><td colspan="2">Đang tải...</td></tr></tbody></table></div>
-        </div>
-        
-        <div id="config" class="adminpage hidden">
-            <div class="field"><label>LINK NHIỆM VỤ (Bắt buộc - VD: Link4M)</label><input id="bypassUrl" placeholder="https://link4m.com/abc"></div>
-            <div class="field"><label>LINK VỀ (Sau khi lấy acc)</label><input id="redirectUrl" placeholder="https://zalo.me/g/..."></div>
-            <button class="primary" id="saveConfig">LƯU CẤU HÌNH</button>
-        </div>
-    </div>
-</section>
-<div class="footer">MDUYK ACCOUNT<br>Hệ thống phân phối tài khoản tự động.</div>
+<div class="panel">
+    <h1>MDUYK REDEEM</h1>
+    <p id="desc">Bấm nút bên dưới để lấy tài khoản.</p>
+    <button id="btnGet">LẤY ACC NGAY →</button>
+    <div class="result" id="resultBox"></div>
 </div>
 
 <script>
-const FIREBASE_URL = "https://shopmduy-default-rtdb.asia-southeast1.firebasedatabase.app/";
-const ADMIN_PIN = "123456"; 
+// THAY LINK RENDER VÀO ĐÂY
+const API_URL = "https://ten-bot-cua-ban.onrender.com/api/get_acc";
+let token = "";
 
+let url = window.location.href;
+if (url.includes("MDUYK-")) {
+    let parts = url.split("MDUYK-");
+    token = "MDUYK-" + parts[1].split("&")[0].split("/")[0];
+} else {
+    document.getElementById('desc').innerText = "Link không hợp lệ!";
+    document.getElementById('btnGet').disabled = true;
+}
 
-let touchCount = 0;
-document.body.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 4) {
-        touchCount++;
-        setTimeout(() => { touchCount = 0; }, 2000);
-        if (touchCount >= 6) {
-            document.getElementById('adminTab').classList.remove('hidden');
-            alert("Đã mở khóa Tab Admin!");
-        }
-    }
-});
-
-
-document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => {
-    document.querySelectorAll('[data-view]').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    document.querySelectorAll('.view').forEach(x => x.classList.add('hidden'));
-    document.getElementById(b.dataset.view).classList.remove('hidden');
-});
-
-
-document.querySelectorAll('[data-admin]').forEach(b => b.onclick = () => {
-    document.querySelectorAll('.adminpage').forEach(x => x.classList.add('hidden'));
-    document.getElementById(b.dataset.admin).classList.remove('hidden');
-    if (b.dataset.admin === 'config') loadConfig();
-    if (b.dataset.admin === 'inventory') loadInventory();
-});
-
-
-document.getElementById('unlockBtn').onclick = () => {
-    if (document.getElementById('pinInput').value === ADMIN_PIN) {
-        document.getElementById('lockScreen').classList.add('hidden');
-        document.getElementById('adminPanel').classList.remove('hidden');
-        loadInventory();
-        loadConfig();
-    } else { alert("Sai mã PIN!"); }
-};
-
-
-document.getElementById('startTaskBtn').onclick = function() {
+document.getElementById('btnGet').onclick = function() {
     this.disabled = true;
-    this.textContent = 'ĐANG CHUYỂN...';
+    this.textContent = 'ĐANG LẤY...';
     
-    fetch(FIREBASE_URL + "config.json")
+    fetch(`${API_URL}?token=${token}`)
     .then(res => res.json())
     .then(data => {
-        if (data && data.bypassUrl) {
-            window.location.href = data.bypassUrl;
+        if (data.status === "success") {
+            document.getElementById('resultBox').innerHTML = `Tài khoản: <b>${data.user} | ${data.pass}</b><br><br><span style="color:red; font-size:12px;">Hãy gửi mã này vào Bot Telegram để hoàn tất!</span>`;
+            document.getElementById('resultBox').style.display = "block";
+            this.textContent = 'ĐÃ LẤY ACC';
+            document.getElementById('desc').style.display = "none";
         } else {
-            alert("Admin chưa cài đặt Link Nhiệm Vụ!");
-            this.disabled = false;
-            this.textContent = 'NHẬN ACC NGAY →';
+            // Nếu khách ấn F5 hoặc load lại, nó sẽ rơi vào đây
+            document.getElementById('resultBox').innerHTML = `<span style="color:red;">${data.message}</span>`;
+            document.getElementById('resultBox').style.display = "block";
+            this.textContent = 'LỖI';
+            document.getElementById('desc').style.display = "none";
         }
     })
     .catch(err => {
-        alert("Lỗi mạng!");
+        alert("Lỗi kết nối mạng!");
         this.disabled = false;
-        this.textContent = 'NHẬN ACC NGAY →';
+        this.textContent = 'THỬ LẠI →';
     });
 };
-
-
-document.getElementById('addAccounts').onclick = function() {
-    const lines = document.getElementById('newAccounts').value.split('\n').map(x => x.trim()).filter(Boolean);
-    if (lines.length === 0) return alert('Vui lòng nhập acc!');
-    
-    let count = 0;
-    lines.forEach(line => {
-        const parts = line.split('|');
-        if (parts.length >= 2) {
-            fetch(FIREBASE_URL + "inventory.json", {
-                method: 'POST',
-                body: JSON.stringify({ user: parts[0].trim(), pass: parts[1].trim(), used: false })
-            });
-            count++;
-        }
-    });
-    document.getElementById('newAccounts').value = '';
-    alert(`Đã thêm ${count} acc!`);
-    loadInventory();
-};
-
-
-document.getElementById('saveConfig').onclick = function() {
-    const data = {
-        bypassUrl: document.getElementById('bypassUrl').value.trim(),
-        redirectUrl: document.getElementById('redirectUrl').value.trim()
-    };
-    fetch(FIREBASE_URL + "config.json", {
-        method: 'PUT',
-        body: JSON.stringify(data)
-    }).then(() => {
-        alert("Đã lưu cấu hình!");
-    });
-};
-
-
-function loadInventory() {
-    fetch(FIREBASE_URL + "inventory.json")
-    .then(res => res.json())
-    .then(data => {
-        let html = '', stock = 0, issued = 0;
-        if (data) {
-            for (const key in data) {
-                const item = data[key];
-                if (item.used) issued++; else stock++;
-                html += `<tr><td>${item.user} | ${item.pass}</td><td class="status ${item.used ? 'used' : ''}">${item.used ? 'ĐÃ PHÁT' : 'CÒN TRONG KHO'}</td></tr>`;
-            }
-        }
-        document.getElementById('inventoryRows').innerHTML = html || '<tr><td colspan="2">Kho trống</td></tr>';
-        document.getElementById('stockCount').textContent = stock;
-        document.getElementById('issuedCount').textContent = issued;
-    });
-}
-
-function loadConfig() {
-    fetch(FIREBASE_URL + "config.json")
-    .then(res => res.json())
-    .then(data => {
-        if (data) {
-            if (data.bypassUrl) document.getElementById('bypassUrl').value = data.bypassUrl;
-            if (data.redirectUrl) document.getElementById('redirectUrl').value = data.redirectUrl;
-        }
-    });
-}
 </script>
 </body>
 </html>
